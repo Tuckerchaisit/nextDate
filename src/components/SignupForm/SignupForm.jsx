@@ -7,6 +7,8 @@ const SignupForm = props => {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
     name: '',
+    address: '',
+    relationshipStatus: '',
     email: '',
     password: '',
     passwordConf: '',
@@ -31,7 +33,7 @@ const SignupForm = props => {
     }
   }
 
-  const { name, email, password, passwordConf } = formData
+  const { name, email, password, address, relationshipStatus, passwordConf } = formData
 
   const isFormInvalid = () => {
     return !(name && email && password && password === passwordConf)
@@ -44,7 +46,9 @@ const SignupForm = props => {
       className={styles.container}
     >
       <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>Name</label>
+        <label htmlFor="name" className={styles.label}>
+          Name
+        </label>
         <input
           type="text"
           autoComplete="off"
@@ -55,7 +59,37 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
+        <label htmlFor="address" className="address">
+          Location
+        </label>
+        <input
+          type="text"
+          autoComplete="off"
+          id="address"
+          value={address}
+          name="address"
+          onChange={handleChange}
+        />
+      </div>
+      <div className={styles.inputContainer}>
+        <label htmlFor="relationshipStatus" className="relationshipStatus">
+          Relationship Status:
+        </label>
+        <select
+          name="relationshipStatus"
+          id="relationshipStatus"
+          onChange={handleChange}
+        >
+          <option value="Single">Single</option>
+          <option value="Complicated">Complicated</option>
+          <option value="Married">Married</option>
+          <option value="In A Relationship">In A Relationship</option>
+        </select>
+      </div>
+      <div className={styles.inputContainer}>
+        <label htmlFor="email" className={styles.label}>
+          Email
+        </label>
         <input
           type="text"
           autoComplete="off"
@@ -66,7 +100,9 @@ const SignupForm = props => {
         />
       </div>
       <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
+        <label htmlFor="password" className={styles.label}>
+          Password
+        </label>
         <input
           type="password"
           autoComplete="off"
@@ -98,7 +134,7 @@ const SignupForm = props => {
         </Link>
       </div>
     </form>
-  )
+  );
 }
 
 export default SignupForm
