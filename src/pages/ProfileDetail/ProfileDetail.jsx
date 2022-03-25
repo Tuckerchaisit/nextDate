@@ -9,7 +9,10 @@ const ProfileDetail = (props) => {
     return(
       <>
       <p>{profile.name}</p>
-      <p>{profile.email}</p>
+      <p>{profile.address}</p>
+      <p>{profile.relationshipStatus}</p>
+      <p>{profile.contactInfo}</p>
+      <p>{profile.aboutMe}</p>
       </>
     )
   })
