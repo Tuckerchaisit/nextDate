@@ -33,10 +33,10 @@ const SignupForm = props => {
     }
   }
 
-  const { name, email, password, address, relationshipStatus, passwordConf } = formData
+ 
 
   const isFormInvalid = () => {
-    return !(name && email && password && password === passwordConf)
+    return !(formData.name && formData.email && formData.password && formData.password === formData.passwordConf)
   }
 
   return (
@@ -53,7 +53,7 @@ const SignupForm = props => {
           type="text"
           autoComplete="off"
           id="name"
-          value={name}
+          value={formData.name}
           name="name"
           onChange={handleChange}
         />
@@ -66,7 +66,7 @@ const SignupForm = props => {
           type="text"
           autoComplete="off"
           id="address"
-          value={address}
+          value={formData.address}
           name="address"
           onChange={handleChange}
         />
@@ -94,7 +94,7 @@ const SignupForm = props => {
           type="text"
           autoComplete="off"
           id="email"
-          value={email}
+          value={formData.email}
           name="email"
           onChange={handleChange}
         />
@@ -107,7 +107,7 @@ const SignupForm = props => {
           type="password"
           autoComplete="off"
           id="password"
-          value={password}
+          value={formData.password}
           name="password"
           onChange={handleChange}
         />
@@ -120,7 +120,7 @@ const SignupForm = props => {
           type="password"
           autoComplete="off"
           id="confirm"
-          value={passwordConf}
+          value={formData.passwordConf}
           name="passwordConf"
           onChange={handleChange}
         />

@@ -21,9 +21,9 @@ const App = () => {
     setProIdx(idx)
   }
   useEffect(()=> {
-    profileService.getAllProfiles()
-    .then(profiles => setProfiles(profiles))
-  }, [])
+    user && profileService.getAllProfiles()
+      .then(profiles => setProfiles(profiles))
+  }, [user])
 
   const handleLogout = () => {
     authService.logout()
