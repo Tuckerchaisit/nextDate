@@ -1,3 +1,5 @@
+import DatePlanList from "../DatePlanList/DatePlanList"
+
 const ProfileDetail = (props) => {
   const filteredProfile = props.profiles.filter((profile,idx)=>{
     return(
