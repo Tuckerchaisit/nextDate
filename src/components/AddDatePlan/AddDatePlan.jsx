@@ -15,18 +15,21 @@ function AddDatePlan(props) {
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
+		// console.log(formData)
   }
 
   const handleSubmit = evt => {
     evt.preventDefault()
-		const datePlanFormData = new FormData()
-		datePlanFormData.append('location', formData.location)
-    datePlanFormData.append('activity', formData.activity)
-    datePlanFormData.append('food', formData.food)
-    props.handleAddDatePlan(datePlanFormData)
+		console.log(formData)
+		// const datePlanFormData = new FormData()
+		// datePlanFormData.append('location', formData.location)
+    // datePlanFormData.append('activity', formData.activity)
+    // datePlanFormData.append('food', formData.food)
+    props.handleAddDatePlan(formData)
+		// console.log(datePlanFormData)
   }
 
-	console.log(props)
+	// console.log(props)
 
 	return (
 		<>

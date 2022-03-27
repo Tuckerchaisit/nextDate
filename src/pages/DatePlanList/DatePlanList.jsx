@@ -14,7 +14,7 @@ const DatePlanList = (props) => {
         {props.datePlans 
         .filter(datePlan => ownerId[0] === datePlan.owner._id)
         .map(datePlan => 
-          <DatePlan key={datePlan.location} datePlan={datePlan} />
+          <DatePlan key={datePlan._id} datePlan={datePlan} />
           )} 
       </div>
       <Link 

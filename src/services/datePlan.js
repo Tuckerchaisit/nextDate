@@ -12,12 +12,14 @@ function getAllDatePlans() {
 }
 
 function create(newDatePlanData) {
+  console.log(newDatePlanData)
   return fetch(BASE_URL, {
     method: 'POST',
     headers: {
-      'Authorization': `Bearer ${tokenService.getToken()}`
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json'
     },
-    body: newDatePlanData
+    body: JSON.stringify(newDatePlanData)
   })
   .then(res => res.json())
 }

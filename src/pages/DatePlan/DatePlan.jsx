@@ -1,4 +1,5 @@
 const DatePlan = (props) => {
+  console.log(props)
   return ( 
     <>
 <div>
