@@ -7,21 +7,22 @@ const ProfileDetail = (props) => {
     )
   })
   
+
   const mappedFiltered = filteredProfile.map(profile=>{
-    return(
-      <>
-      <p>{profile.name}</p>
-      <p>{profile.address}</p>
-      <p>{profile.relationshipStatus}</p>
-      <p>{profile.contactInfo}</p>
-      <p>{profile.aboutMe}</p>
-      </>
-    )
+    return (
+      <div key={profile._id}>
+        <p>{profile.name}</p>
+        <p>{profile.address}</p>
+        <p>{profile.relationshipStatus}</p>
+        <p>{profile.contactInfo}</p>
+        <p>{profile.aboutMe}</p>
+      </div>
+    );
   })
   return ( 
     <>
     <h1>{mappedFiltered }</h1>
-    <DatePlanList owner={filteredProfile} datePlans={props.datePlans}/>
+    <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx}/>
     </>
    );
 }

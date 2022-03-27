@@ -1,17 +1,20 @@
-const DatePlan = (props) => {
-  console.log(props)
-  return ( 
-    <>
-<div>
-<h2>Date plan</h2>
-<h3>Location:{props.datePlan.location}</h3>
-<h3>Activity:{props.datePlan.activity}</h3>
-<h3>Food:{props.datePlan.food}</h3>
-<h3>Chats:{props.datePlan.chats}</h3>
-</div>
-    </> 
+import { Link } from "react-router-dom";
 
+const DatePlan = ({datePlan}) => {
+
+  console.log(datePlan)
+  return (
+    <>
+      <div>
+        <h2>Date plan</h2>
+        <h3>Location:{datePlan.location}</h3>
+        <h3>Activity:{datePlan.activity}</h3>
+        <h3>Food:{datePlan.food}</h3>
+        <h3>Chats:{datePlan.chats}</h3>
+        <Link to="/edit" state={{datePlan}}>Edit Date Plan</Link> 
+      </div>
+    </>
   );
-}
+};
  
 export default DatePlan;

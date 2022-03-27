@@ -11,6 +11,7 @@ import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 import AddDatePlan from './components/AddDatePlan/AddDatePlan'
 import * as datePlanService from './services/datePlan'
+import EditDatePlan from './components/EditDatePlan/EditDateplan'
 
 
 
@@ -49,6 +50,12 @@ const App = () => {
     setDatePlans([...datePlans, newDatePlan])
   }
 
+  const handleEditDatePlan = updatedDatePlan => {
+    const newDatePlanArray = datePlans.map(datePlan => 
+      datePlan._id === updatedDatePlan._id ? updatedDatePlan : datePlan
+    )
+    setDatePlans(newDatePlanArray)
+  }
 
   return (
     <>
@@ -93,6 +100,10 @@ const App = () => {
           element={
             user ? <AddDatePlan user={user} handleAddDatePlan={handleAddDatePlan} datePlans={datePlans}/> : <Navigate to="/signin" />
           }
+        />
+        <Route
+        path="/edit"
+        element={ user ? <EditDatePlan handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
         />
       </Routes>
     </>
