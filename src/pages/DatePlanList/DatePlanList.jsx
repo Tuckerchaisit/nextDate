@@ -1,28 +1,27 @@
-import * as  datePlanService from "../../services/datePlan.js";
-import { useState, useEffect } from 'react';
+import DatePlan from "../DatePlan/DatePlan.jsx";
+import { Link } from "react-router-dom";
 
 
-const DatePlanList = () => {
+const DatePlanList = (props) => {
+  
+  const ownerId = props.owner.map(profile => profile._id)
 
-  const [datePlans, setDatePlans] = useState([])
-  
-  
-  
-  useEffect(() => {
-    datePlanService.getAllDatePlans() 
-    .then(datePlans => setDatePlans(datePlans))
-  }, [])
-  
-  const allDatePlans = datePlans.map(datePlan =>
-   <p >{datePlan.location}</p> 
-  )
-  
   return (
     <>
+    
       <h1>These are all the Date Plans</h1>
-      <div>
-        {allDatePlans} 
+      <div className="datePlan-container">
+        {props.datePlans 
+        .filter(datePlan => ownerId[0] === datePlan.owner._id)
+        .map(datePlan => 
+          <DatePlan key={datePlan.location} datePlan={datePlan} />
+          )} 
       </div>
+      <Link 
+        to='/new'
+      >
+        Add Date Plan
+      </Link>
     </>
   );
 }

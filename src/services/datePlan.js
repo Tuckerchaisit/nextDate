@@ -11,6 +11,18 @@ function getAllDatePlans() {
   .then(res => res.json())
 }
 
+function create(newDatePlanData) {
+  return fetch(BASE_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    },
+    body: newDatePlanData
+  })
+  .then(res => res.json())
+}
+
 export {
-  getAllDatePlans
+  getAllDatePlans,
+  create
 }

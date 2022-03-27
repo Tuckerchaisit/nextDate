@@ -9,6 +9,9 @@ import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ProfileDetail from './pages/ProfileDetail/ProfileDetail'
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
+import AddDatePlan from './components/AddDatePlan/AddDatePlan'
+import * as datePlanService from './services/datePlan'
+
 
 
 const App = () => {
@@ -16,6 +19,7 @@ const App = () => {
   const navigate = useNavigate()
   const [profiles, setProfiles] = useState([])
   const [proIdx, setProIdx] = useState(0)
+  const [datePlans, setDatePlans] = useState([])
   
   function handleClick(idx){
     setProIdx(idx)
@@ -24,6 +28,11 @@ const App = () => {
     user && profileService.getAllProfiles()
       .then(profiles => setProfiles(profiles))
   }, [user])
+
+  useEffect(() => {
+    datePlanService.getAllDatePlans() 
+    .then(datePlans => setDatePlans(datePlans))
+  }, [])
 
   const handleLogout = () => {
     authService.logout()
@@ -34,6 +43,12 @@ const App = () => {
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
   }
+
+  const handleAddDatePlan = async newDatePlanData => {
+    const newDatePlan = await datePlanService.create(newDatePlanData)
+    setDatePlans([...datePlans, newDatePlan])
+  }
+
 
   return (
     <>
@@ -50,19 +65,38 @@ const App = () => {
         />
         <Route
           path="/profiles"
-          element={user ? <Profiles profiles={profiles} handleClick={handleClick}/> : <Navigate to="/login" />}
+          element={
+            user ? (
+              <Profiles profiles={profiles} handleClick={handleClick} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/changePassword"
-          element={user ? <ChangePassword handleSignupOrLogin={handleSignupOrLogin}/> : <Navigate to="/login" />}
+          element={
+            user ? (
+              <ChangePassword handleSignupOrLogin={handleSignupOrLogin} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
         <Route
           path="/profiledetail"
-          element={<ProfileDetail profiles={profiles} proIdx={proIdx}/>}
+          element={<ProfileDetail profiles={profiles} proIdx={proIdx} datePlans={datePlans}/>}
+        />
+
+        <Route
+          path="/new"
+          element={
+            user ? <AddDatePlan user={user} handleAddDatePlan={handleAddDatePlan} datePlans={datePlans}/> : <Navigate to="/signin" />
+          }
         />
       </Routes>
     </>
-  )
+  );
 }
 
 export default App
