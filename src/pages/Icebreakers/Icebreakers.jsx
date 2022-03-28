@@ -8,6 +8,7 @@ const Icebreakers = (props) => {
     // console.log(icebreaker._id)
     return (
       <>
+      {/* <Link to="/profile">See Profile</Link> */}
         <p>{icebreaker.funFact}</p>
         <p>{icebreaker.question}</p>
         <button
