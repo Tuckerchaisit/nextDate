@@ -78,7 +78,7 @@ const EditDatePlan = ({datePlan, handleEditDatePlan}) => {
 						type="submit"
             disabled={!validForm}
 					>
-						Add Date Plan
+						Edit Date Plan
 					</button>
 				</div>
 			</form>

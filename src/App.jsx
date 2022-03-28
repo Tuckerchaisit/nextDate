@@ -30,6 +30,8 @@ const App = () => {
       .then(profiles => setProfiles(profiles))
   }, [user])
 
+  // console.log(user)
+
   useEffect(() => {
     datePlanService.getAllDatePlans() 
     .then(datePlans => setDatePlans(datePlans))
@@ -48,6 +50,7 @@ const App = () => {
   const handleAddDatePlan = async newDatePlanData => {
     const newDatePlan = await datePlanService.create(newDatePlanData)
     setDatePlans([...datePlans, newDatePlan])
+    navigate('/profiledetail')
   }
 
   const handleEditDatePlan = updatedDatePlan => {
@@ -57,8 +60,16 @@ const App = () => {
         datePlan._id === updatedDatePlan._id ? updatedDatePlan : datePlan
       )
       setDatePlans(newDatePlanArray)
+      navigate('/profiledetail')
     })
   }
+
+  const handleDeleteDatePlan = id => {
+    datePlanService.deleteOne(id) 
+    .then(deleteDatePlan => setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id)))
+  }
+
+  console.log(datePlans[0])
 
   return (
     <>
@@ -95,7 +106,7 @@ const App = () => {
         />
         <Route
           path="/profiledetail"
-          element={<ProfileDetail profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user}/>}
+          element={<ProfileDetail profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user} handleDeleteDatePlan={handleDeleteDatePlan}/>}
         />
 
         <Route
