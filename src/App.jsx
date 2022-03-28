@@ -112,7 +112,7 @@ const App = () => {
           path="/icebreakers"
           element={
             user ? (
-              <Icebreakers profiles={profiles} handleClick={handleClick} />
+              <Icebreakers profiles={profiles} handleClick={handleClick} iceBreakers={iceBreakers}/>
             ) : (
               <Navigate to="/login" />
             )
@@ -149,7 +149,7 @@ const App = () => {
         />
         <Route
         path="/addicebreaker"
-        element={ user ? <AddIceBreaker user={user} handleAddIceBreaker={handleAddIceBreaker}/> : <Navigate to="/signin" /> }
+        element={ user ? <AddIceBreaker user={user} handleAddIceBreaker={handleAddIceBreaker} /> : <Navigate to="/signin" /> }
         />
       </Routes>
       
