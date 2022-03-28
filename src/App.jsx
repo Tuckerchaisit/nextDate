@@ -15,6 +15,7 @@ import * as IcebreakersService from './services/icebreaker'
 import EditDatePlan from './components/EditDatePlan/EditDateplan'
 import ShowDateplan from './pages/ShowDateplan/ShowDateplan'
 import Icebreakers from './pages/Icebreakers/Icebreakers'
+import AddIceBreaker from './components/AddIceBreaker/AddIceBreaker'
 
 
 
@@ -24,6 +25,7 @@ const App = () => {
   const [profiles, setProfiles] = useState([])
   const [proIdx, setProIdx] = useState(0)
   const [datePlans, setDatePlans] = useState([])
+  const [iceBreakers, setIceBreakers] = useState([])
   
   function handleClick(idx){
     setProIdx(idx)
@@ -38,6 +40,11 @@ const App = () => {
   useEffect(() => {
     datePlanService.getAllDatePlans() 
     .then(datePlans => setDatePlans(datePlans))
+  }, [])
+
+  useEffect(() => {
+    IcebreakersService.getAllIceBreakers() 
+    .then(iceBreakers => setIceBreakers(iceBreakers))
   }, [])
 
   const handleLogout = () => {
@@ -72,6 +79,17 @@ const App = () => {
     .then(deleteDatePlan => setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id)))
   }
 
+  const handleDeleteIceBreaker = id => {
+    IcebreakersService.deleteOne(id) 
+    .then(deleteIceBreaker => setIceBreakers(iceBreakers.filter(iceBreaker => iceBreaker._id !== deleteIceBreaker._id)))
+  }
+
+  const handleAddIceBreaker = async newIceBreaker => {
+    const IceBreaker = await IcebreakersService.create(newIceBreaker)
+    setDatePlans([...iceBreakers, IceBreaker])
+    navigate('/profiledetail')
+  }
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -99,7 +117,7 @@ const App = () => {
           path="/icebreakers"
           element={
             user ? (
-              <Icebreakers profiles={profiles} handleClick={handleClick} />
+              <Icebreakers profiles={profiles} handleClick={handleClick} iceBreakers={iceBreakers} handleDeleteIceBreaker={handleDeleteIceBreaker}/>
             ) : (
               <Navigate to="/login" />
             )
@@ -133,6 +151,10 @@ const App = () => {
         <Route
         path="/dateplans/:id"
         element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
+        />
+        <Route
+        path="/addicebreaker"
+        element={ user ? <AddIceBreaker user={user} handleAddIceBreaker={handleAddIceBreaker} /> : <Navigate to="/signin" /> }
         />
       </Routes>
       
