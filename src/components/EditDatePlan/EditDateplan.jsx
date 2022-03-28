@@ -1,15 +1,16 @@
 import { useState, useRef, useEffect } from "react"
-import { Link, useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 
 const EditDatePlan = ({datePlan, handleEditDatePlan}) => {
-  const formElement = useRef()
   const location = useLocation()
+  
   console.log(location)
   console.log(location.state.datePlan)
   console.log(handleEditDatePlan)
-
+  
   const [formData, setFormData] = useState(location.state.datePlan)
+  const formElement = useRef()
 
 
   const handleChange = evt => {

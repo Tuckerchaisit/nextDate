@@ -24,7 +24,20 @@ function create(newDatePlanData) {
   .then(res => res.json())
 }
 
+function update(editDatePlan) {
+  return fetch(`${BASE_URL}/${editDatePlan._id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(editDatePlan)
+  })
+	.then(res => res.json())
+}
+
 export {
   getAllDatePlans,
-  create
+  create,
+  update
 }

@@ -51,10 +51,13 @@ const App = () => {
   }
 
   const handleEditDatePlan = updatedDatePlan => {
-    const newDatePlanArray = datePlans.map(datePlan => 
-      datePlan._id === updatedDatePlan._id ? updatedDatePlan : datePlan
-    )
-    setDatePlans(newDatePlanArray)
+    datePlanService.update(updatedDatePlan)
+    .then(updatedDatePlan => {
+      const newDatePlanArray = datePlans.map(datePlan => 
+        datePlan._id === updatedDatePlan._id ? updatedDatePlan : datePlan
+      )
+      setDatePlans(newDatePlanArray)
+    })
   }
 
   return (
@@ -103,7 +106,7 @@ const App = () => {
         />
         <Route
         path="/edit"
-        element={ user ? <EditDatePlan handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
+        element={ user ? <EditDatePlan user={user} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
         />
       </Routes>
     </>
