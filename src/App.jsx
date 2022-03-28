@@ -12,6 +12,7 @@ import * as profileService from './services/profileService'
 import AddDatePlan from './components/AddDatePlan/AddDatePlan'
 import * as datePlanService from './services/datePlan'
 import EditDatePlan from './components/EditDatePlan/EditDateplan'
+import ShowDateplan from './pages/ShowDateplan/ShowDateplan'
 
 
 
@@ -119,7 +120,12 @@ const App = () => {
         path="/edit"
         element={ user ? <EditDatePlan user={user} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
         />
+        <Route
+        path="/dateplans/:id"
+        element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
+        />
       </Routes>
+      
     </>
   );
 }

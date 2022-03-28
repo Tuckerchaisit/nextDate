@@ -46,10 +46,17 @@ function deleteOne(id) {
   .then(res => res.json())
 }
 
+function getDatePlanDetails(id){
+  return fetch(`${BASE_URL}/${id}`)
+  .then(res => res.json())
+}
+
+
 
 export {
   getAllDatePlans,
   create,
   update,
-  deleteOne
+  deleteOne,
+  getDatePlanDetails
 }

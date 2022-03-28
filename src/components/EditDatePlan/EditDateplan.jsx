@@ -32,6 +32,20 @@ const EditDatePlan = ({datePlan, handleEditDatePlan}) => {
     <>
       	<h1>Edit Date Plan</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+			<div>
+					<label htmlFor="title-input" className="form-label">
+						Title:
+					</label>
+					<input 
+						className="form-control"
+						type="text"
+						id="title-input"
+						name="title"
+            value={formData.title}
+            onChange={handleChange}
+						required
+					/>
+				</div>
 				<div>
 					<label htmlFor="location-input" className="form-label">
 						Location:
@@ -70,6 +84,19 @@ const EditDatePlan = ({datePlan, handleEditDatePlan}) => {
 						id="food-input"
 						name="food"
             value={formData.food}
+            onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<label htmlFor="detail-input" className="form-label">
+						Detail:
+					</label>
+					<input 
+						type="textarea"
+						className="form-control"
+						id="detail-input"
+						name="detail"
+            value={formData.detail}
             onChange={handleChange}
 					/>
 				</div>
