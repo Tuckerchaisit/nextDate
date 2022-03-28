@@ -22,7 +22,7 @@ const ProfileDetail = (props) => {
   return ( 
     <>
     <h1>{mappedFiltered }</h1>
-    <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx}/>
+    <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user}/>
     </>
    );
 }
