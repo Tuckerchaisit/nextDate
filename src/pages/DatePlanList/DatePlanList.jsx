@@ -7,7 +7,6 @@ const DatePlanList = (props) => {
   
   const ownerId = props.owner.map(profile => profile._id)
   const ownerEmail = props.owner.map(profile => profile.email)
-  
 
   const filteredProfile = props.profiles.filter((profile,idx)=>{
     return(

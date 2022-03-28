@@ -79,6 +79,11 @@ const App = () => {
     .then(deleteDatePlan => setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id)))
   }
 
+  const handleDeleteIceBreaker = id => {
+    IcebreakersService.deleteOne(id) 
+    .then(deleteIceBreaker => setIceBreakers(iceBreakers.filter(iceBreaker => iceBreaker._id !== deleteIceBreaker._id)))
+  }
+
   const handleAddIceBreaker = async newIceBreaker => {
     const IceBreaker = await IcebreakersService.create(newIceBreaker)
     setDatePlans([...iceBreakers, IceBreaker])
@@ -112,7 +117,7 @@ const App = () => {
           path="/icebreakers"
           element={
             user ? (
-              <Icebreakers profiles={profiles} handleClick={handleClick} iceBreakers={iceBreakers}/>
+              <Icebreakers profiles={profiles} handleClick={handleClick} iceBreakers={iceBreakers} handleDeleteIceBreaker={handleDeleteIceBreaker}/>
             ) : (
               <Navigate to="/login" />
             )
