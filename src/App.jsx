@@ -11,7 +11,10 @@ import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 import AddDatePlan from './components/AddDatePlan/AddDatePlan'
 import * as datePlanService from './services/datePlan'
+import * as IcebreakersService from './services/icebreaker'
 import EditDatePlan from './components/EditDatePlan/EditDateplan'
+import ShowDateplan from './pages/ShowDateplan/ShowDateplan'
+import Icebreakers from './pages/Icebreakers/Icebreakers'
 
 
 
@@ -69,8 +72,6 @@ const App = () => {
     .then(deleteDatePlan => setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id)))
   }
 
-  console.log(datePlans[0])
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -89,6 +90,16 @@ const App = () => {
           element={
             user ? (
               <Profiles profiles={profiles} handleClick={handleClick} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/icebreakers"
+          element={
+            user ? (
+              <Icebreakers profiles={profiles} handleClick={handleClick} />
             ) : (
               <Navigate to="/login" />
             )
@@ -119,7 +130,12 @@ const App = () => {
         path="/edit"
         element={ user ? <EditDatePlan user={user} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
         />
+        <Route
+        path="/dateplans/:id"
+        element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
+        />
       </Routes>
+      
     </>
   );
 }

@@ -4,9 +4,11 @@ function AddDatePlan(props) {
   const formElement = useRef()
   const [validForm, setValidForm] = useState(false)
   const [formData, setFormData] = useState({
+		title: '',
     location: '',
     activity: '',
-    food: ''
+    food: '',
+		detail: '',
   })
 
   useEffect(()=> {
@@ -15,26 +17,37 @@ function AddDatePlan(props) {
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
-		// console.log(formData)
+		
   }
 
   const handleSubmit = evt => {
     evt.preventDefault()
 		console.log(formData)
-		// const datePlanFormData = new FormData()
-		// datePlanFormData.append('location', formData.location)
-    // datePlanFormData.append('activity', formData.activity)
-    // datePlanFormData.append('food', formData.food)
+		
     props.handleAddDatePlan(formData)
-		// console.log(datePlanFormData)
+		
   }
 
-	// console.log(props)
+
 
 	return (
 		<>
 			<h1>Add Date Plan</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
+				<div>
+					<label htmlFor="title-input" className="form-label">
+						Title:
+					</label>
+					<input 
+						className="form-control"
+						type="text"
+						id="title-input"
+						name="title"
+            value={formData.title}
+            onChange={handleChange}
+						required
+					/>
+				</div>
 				<div>
 					<label htmlFor="location-input" className="form-label">
 						Location:
@@ -73,6 +86,19 @@ function AddDatePlan(props) {
 						id="food-input"
 						name="food"
             value={formData.food}
+            onChange={handleChange}
+					/>
+				</div>
+				<div>
+					<label htmlFor="detail-input" className="form-label">
+						Detail:
+					</label>
+					<input 
+						type="textarea"
+						className="form-control"
+						id="detail-input"
+						name="detail"
+            value={formData.detail}
             onChange={handleChange}
 					/>
 				</div>
