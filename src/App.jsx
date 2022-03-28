@@ -70,8 +70,6 @@ const App = () => {
     .then(deleteDatePlan => setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id)))
   }
 
-  console.log(datePlans[0])
-
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />

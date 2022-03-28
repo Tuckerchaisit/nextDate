@@ -14,20 +14,11 @@ const DatePlanList = (props) => {
       idx===props.proIdx
     )
   })
-
   const profile = filteredProfile[0]
 
-  console.log(ownerEmail[0]);
-  console.log(props.user);
-  
-  // console.log("ownerId: ", ownerId)
-  // console.log("filteredProfile: ", filteredProfile)
-  // console.log('profile: ', profile)
-
-  
   return (
     <>
-      <h1>These are all the Date Plans</h1>
+      <h1>My Date Plans</h1>
       <div className="datePlan-container">
         {props.datePlans
           .filter((datePlan) => ownerId[0] === datePlan.owner._id)

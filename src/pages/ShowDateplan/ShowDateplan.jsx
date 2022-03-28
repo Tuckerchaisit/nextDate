@@ -5,7 +5,7 @@ import * as datePlanService from '../../services/datePlan.js'
 
 
 
-const ShowDateplan = () => {
+const ShowDateplan = ({datePlans}) => {
   const [datePlanDetail, setDatePlanDetail] = useState({})
   const { id } = useParams()
   useEffect(()=> {
@@ -17,9 +17,11 @@ const ShowDateplan = () => {
   return ( 
     <>
       <div>
-        <p>{datePlanDetail.food}</p>
-        <p>{datePlanDetail.title}</p>
+        <h1>{datePlanDetail.title}</h1>
+        <h3>{datePlanDetail.location}</h3>
         <p>{datePlanDetail.detail}</p>
+        <p>{datePlanDetail.food}</p>
+        <p>{datePlanDetail.activity}</p>
       </div>
     </>
    );

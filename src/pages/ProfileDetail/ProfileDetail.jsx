@@ -11,11 +11,11 @@ const ProfileDetail = (props) => {
   const mappedFiltered = filteredProfile.map(profile=>{
     return (
       <div key={profile._id}>
-        <p>{profile.name}</p>
-        <p>{profile.address}</p>
-        <p>{profile.relationshipStatus}</p>
-        <p>{profile.contactInfo}</p>
-        <p>{profile.aboutMe}</p>
+        <h1>{profile.name}</h1>
+        <h2>{profile.address}</h2>
+        <h3>{profile.relationshipStatus}</h3>
+        <h3>{profile.contactInfo}</h3>
+        <h3>{profile.aboutMe}</h3>
       </div>
     );
   })
