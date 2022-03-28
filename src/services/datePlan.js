@@ -11,6 +11,33 @@ function getAllDatePlans() {
   .then(res => res.json())
 }
 
+function create(newDatePlanData) {
+  console.log(newDatePlanData)
+  return fetch(BASE_URL, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(newDatePlanData)
+  })
+  .then(res => res.json())
+}
+
+function update(editDatePlan) {
+  return fetch(`${BASE_URL}/${editDatePlan._id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(editDatePlan)
+  })
+	.then(res => res.json())
+}
+
 export {
-  getAllDatePlans
+  getAllDatePlans,
+  create,
+  update
 }
