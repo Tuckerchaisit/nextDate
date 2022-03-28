@@ -95,7 +95,7 @@ const App = () => {
         />
         <Route
           path="/profiledetail"
-          element={<ProfileDetail profiles={profiles} proIdx={proIdx} datePlans={datePlans}/>}
+          element={<ProfileDetail profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user}/>}
         />
 
         <Route

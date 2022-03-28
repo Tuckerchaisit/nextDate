@@ -6,6 +6,7 @@ import Profiles from "../Profiles/Profile.jsx";
 const DatePlanList = (props) => {
   
   const ownerId = props.owner.map(profile => profile._id)
+  const ownerEmail = props.owner.map(profile => profile.email)
   
 
   const filteredProfile = props.profiles.filter((profile,idx)=>{
@@ -15,6 +16,9 @@ const DatePlanList = (props) => {
   })
 
   const profile = filteredProfile[0]
+
+  console.log(ownerEmail[0]);
+  console.log(props.user);
   
   // console.log("ownerId: ", ownerId)
   // console.log("filteredProfile: ", filteredProfile)
@@ -32,8 +36,11 @@ const DatePlanList = (props) => {
           ))}
       </div>
 
-      
-      <Link to="/new">Add Date Plan</Link> 
+      {ownerEmail[0] === props.user.email ?
+      <Link to="/new">Add Date Plan</Link>
+      :
+      ""
+} 
     </>
   );
 }
