@@ -32,15 +32,21 @@ const DatePlanList = (props) => {
         {props.datePlans
           .filter((datePlan) => ownerId[0] === datePlan.owner._id)
           .map((datePlan) => (
-            <DatePlan key={datePlan._id} datePlan={datePlan} />
+            <DatePlan
+              key={datePlan._id}
+              datePlan={datePlan}
+              handleDeleteDatePlan={props.handleDeleteDatePlan}
+              user={props.user}
+              ownerEmail={ownerEmail}
+            />
           ))}
       </div>
 
-      {ownerEmail[0] === props.user.email ?
-      <Link to="/new">Add Date Plan</Link>
-      :
-      ""
-} 
+      {ownerEmail[0] === props.user.email ? (
+        <Link to="/new">Add Date Plan</Link>
+      ) : (
+        ""
+      )}
     </>
   );
 }
