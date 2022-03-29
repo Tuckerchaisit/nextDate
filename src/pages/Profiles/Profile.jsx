@@ -4,8 +4,9 @@ import { Link } from 'react-router-dom'
 const Profiles = (props) => {
 
   const allProfiles = props.profiles.map((profile, idx) => {
+    console.log(profile._id)
     return (
-      <Link to="/profiledetail" >
+      <Link to={`/profiles/${profile._id}`} >
         <p onClick={() => props.handleClick(idx)}>{profile.name}</p>
       </Link>
     )

@@ -3,40 +3,45 @@ import { Link } from "react-router-dom";
 import Profiles from "../Profiles/Profile.jsx";
 
 
-const DatePlanList = (props) => {
+const DatePlanList = ({profiles, owner, datePlans, handleDeleteDatePlan, user, proIdx}) => {
+  console.log(datePlans);
+  // const ownerId = owner.map(profile => profile._id)
+  const ownerEmail = owner.map(profile => profile.email)
   
-  const ownerId = props.owner.map(profile => profile._id)
-  const ownerEmail = props.owner.map(profile => profile.email)
-
-  const filteredProfile = props.profiles.filter((profile,idx)=>{
-    return(
-      idx===props.proIdx
-    )
-  })
-  const profile = filteredProfile[0]
+  // const filteredProfile = profiles.filter((profile,idx)=>{
+  //   return(
+  //     idx===proIdx
+  //   )
+  // })
+  // const profile = filteredProfile[0]
 
   return (
     <>
       <h1>My Date Plans</h1>
-      <div className="datePlan-container">
-        {props.datePlans
+      {/* <div className="datePlan-container">
+        {datePlans
           .filter((datePlan) => ownerId[0] === datePlan.owner._id)
           .map((datePlan) => (
             <DatePlan
               key={datePlan._id}
               datePlan={datePlan}
-              handleDeleteDatePlan={props.handleDeleteDatePlan}
-              user={props.user}
+              handleDeleteDatePlan={handleDeleteDatePlan}
+              user={user}
               ownerEmail={ownerEmail}
             />
           ))}
-      </div>
-
-      {ownerEmail[0] === props.user.email ? (
+      </div> */}
+      {/* {datePlans.map(datePlan =>
+        <DatePlan 
+        datePlan={datePlan}
+        handleDeleteDatePlan={handleDeleteDatePlan}
+        user={user}
+        ownerEmail={ownerEmail}
+        />
+        )} */}
+      {/* {ownerEmail[0] === user.email ? ( */}
         <Link to="/new">Add Date Plan</Link>
-      ) : (
-        ""
-      )}
+     
     </>
   );
 }

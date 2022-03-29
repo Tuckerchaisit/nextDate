@@ -16,6 +16,7 @@ import EditDatePlan from './components/EditDatePlan/EditDateplan'
 import ShowDateplan from './pages/ShowDateplan/ShowDateplan'
 import Icebreakers from './pages/Icebreakers/Icebreakers'
 import AddIceBreaker from './components/AddIceBreaker/AddIceBreaker'
+import ShowProfile from './pages/ShowProfile/ShowProfile'
 
 
 
@@ -60,7 +61,7 @@ const App = () => {
   const handleAddDatePlan = async newDatePlanData => {
     const newDatePlan = await datePlanService.create(newDatePlanData)
     setDatePlans([...datePlans, newDatePlan])
-    navigate('/profiledetail')
+    navigate(`/profiles/${profiles[proIdx]._id}`)
   }
 
   const handleEditDatePlan = updatedDatePlan => {
@@ -70,13 +71,16 @@ const App = () => {
         datePlan._id === updatedDatePlan._id ? updatedDatePlan : datePlan
       )
       setDatePlans(newDatePlanArray)
-      navigate('/profiledetail')
+      navigate(`/profiles/${profiles[proIdx]._id}`)
     })
   }
 
   const handleDeleteDatePlan = id => {
     datePlanService.deleteOne(id) 
-    .then(deleteDatePlan => setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id)))
+    .then(deleteDatePlan => {
+      setDatePlans(datePlans.filter(datePlan => datePlan._id !== deleteDatePlan._id))
+      navigate(`/profiles/${profiles[proIdx]._id}`)
+    })
   }
 
   const handleDeleteIceBreaker = id => {
@@ -134,8 +138,8 @@ const App = () => {
           }
         />
         <Route
-          path="/profiledetail"
-          element={<ProfileDetail profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user} handleDeleteDatePlan={handleDeleteDatePlan}/>}
+          path="/profiles/:id"
+          element={<ShowProfile profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user} handleDeleteDatePlan={handleDeleteDatePlan}/>}
         />
 
         <Route
