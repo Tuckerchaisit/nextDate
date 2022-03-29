@@ -21,6 +21,11 @@ const ShowProfile = (props) => {
     .then(profileDetail => setProfileDetail(profileDetail))
   },[])
 
+  useEffect( () => {
+    props.findProfileIndex(id)
+  }, [props.profiles]
+  )
+
   return ( 
     <div>
         <h1>{profileDetail.name}</h1>

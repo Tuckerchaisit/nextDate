@@ -1,14 +1,16 @@
 import DatePlan from "../DatePlan/DatePlan.jsx";
 import { Link } from "react-router-dom";
-import Profiles from "../Profiles/Profile.jsx";
+import Profiles from "../Profiles/Profiles.jsx";
+import React, { useState, useEffect } from 'react';
+import * as datePlanService from '../../services/datePlan'
+
+
 
 
 const DatePlanList = (props) => {
   
   const ownerId = props.owner.map(profile => profile._id)
   const ownerEmail = props.owner.map(profile => profile.email)
-  
-    
   
   // const filteredProfile = profiles.filter((profile,idx)=>{
   //   return(

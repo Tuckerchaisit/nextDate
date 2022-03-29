@@ -12,7 +12,7 @@ const ShowDateplan = ({datePlans}) => {
     datePlanService.getDatePlanDetails(id)
     .then(datePlanDetails => setDatePlanDetail(datePlanDetails))
   },[])
-  console.log(datePlanDetail);
+  
   
   return ( 
     <>
