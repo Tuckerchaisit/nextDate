@@ -33,6 +33,7 @@ const DatePlanList = (props) => {
             handleDeleteDatePlan={props.handleDeleteDatePlan}
             user={props.user}
             ownerEmail={ownerEmail}
+            ownerId={ownerId}
             />
             )}
       </div> 

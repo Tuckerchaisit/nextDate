@@ -165,7 +165,7 @@ const App = () => {
         />
         <Route
         path="/dateplans/:id"
-        element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
+        element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan} handleDeleteDatePlan={handleDeleteDatePlan} profiles={profiles} proIdx={proIdx} findProfileIndex={findProfileIndex}/> : <Navigate to="/signin" /> }
         />
         <Route
         path="/addicebreaker"
