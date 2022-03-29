@@ -11,8 +11,10 @@ const ShowProfile = (props) => {
   const filteredProfile = props.profiles.filter((profile,idx)=>{
     return(
       idx===props.proIdx
-    )
-  })
+
+      )
+    })
+    
   
   useEffect(()=> {
     profileService.getProfileDetails(id)
@@ -26,7 +28,7 @@ const ShowProfile = (props) => {
         <h3>{profileDetail.relationshipStatus}</h3>
         <h3>{profileDetail.contactInfo}</h3>
         <h3>{profileDetail.aboutMe}</h3>
-        <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user} handleDeleteDatePlan={props.handleDeleteDatePlan}/>
+        <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user} handleDeleteDatePlan={props.handleDeleteDatePlan} />
     </div>
 
    );
