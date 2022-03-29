@@ -5,20 +5,20 @@ import Profiles from "../Profiles/Profile.jsx";
 
 const DatePlanList = ({profiles, owner, datePlans, handleDeleteDatePlan, user, proIdx}) => {
   console.log(datePlans);
-  // const ownerId = owner.map(profile => profile._id)
+  const ownerId = owner.map(profile => profile._id)
   const ownerEmail = owner.map(profile => profile.email)
   
-  // const filteredProfile = profiles.filter((profile,idx)=>{
-  //   return(
-  //     idx===proIdx
-  //   )
-  // })
-  // const profile = filteredProfile[0]
+  const filteredProfile = profiles.filter((profile,idx)=>{
+    return(
+      idx===proIdx
+    )
+  })
+  const profile = filteredProfile[0]
 
   return (
     <>
       <h1>My Date Plans</h1>
-      {/* <div className="datePlan-container">
+       <div className="datePlan-container">
         {datePlans
           .filter((datePlan) => ownerId[0] === datePlan.owner._id)
           .map((datePlan) => (
@@ -30,7 +30,7 @@ const DatePlanList = ({profiles, owner, datePlans, handleDeleteDatePlan, user, p
               ownerEmail={ownerEmail}
             />
           ))}
-      </div> */}
+      </div> 
       {/* {datePlans.map(datePlan =>
         <DatePlan 
         datePlan={datePlan}
@@ -39,8 +39,10 @@ const DatePlanList = ({profiles, owner, datePlans, handleDeleteDatePlan, user, p
         ownerEmail={ownerEmail}
         />
         )} */}
-      {/* {ownerEmail[0] === user.email ? ( */}
+     {ownerEmail[0] === user.email ? 
         <Link to="/new">Add Date Plan</Link>
+        : ""
+     }
      
     </>
   );
