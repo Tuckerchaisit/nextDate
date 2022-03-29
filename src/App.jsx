@@ -96,7 +96,8 @@ const App = () => {
 
   const handleDeleteIceBreaker = id => {
     IcebreakersService.deleteOne(id) 
-    .then(deleteIceBreaker => setIceBreakers(iceBreakers.filter(iceBreaker => iceBreaker._id !== deleteIceBreaker._id)))
+    const updatedIceBreakers =  iceBreakers.filter(iceBreaker => iceBreaker._id !== id)
+    setIceBreakers(updatedIceBreakers)
   }
 
   const handleAddIceBreaker = async newIceBreaker => {
