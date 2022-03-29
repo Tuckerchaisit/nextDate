@@ -4,9 +4,8 @@ import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-import Profiles from './pages/Profiles/Profile'
+import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
-import ProfileDetail from './pages/ProfileDetail/ProfileDetail'
 import * as authService from './services/authService'
 import * as profileService from './services/profileService'
 import AddDatePlan from './components/AddDatePlan/AddDatePlan'
@@ -31,6 +30,18 @@ const App = () => {
   function handleClick(idx){
     setProIdx(idx)
   }
+
+
+  function findProfileIndex (id) {
+    let profileIndex 
+    profiles.forEach((profile, idx) => {
+      if(profile._id === id) {
+      profileIndex = idx
+      }
+    });
+    setProIdx(profileIndex)
+  }
+
   useEffect(()=> {
     user && profileService.getAllProfiles()
       .then(profiles => setProfiles(profiles))
@@ -111,7 +122,7 @@ const App = () => {
           path="/profiles"
           element={
             user ? (
-              <Profiles profiles={profiles} handleClick={handleClick} />
+              <Profiles profiles={profiles} handleClick={handleClick} datePlans={datePlans} />
             ) : (
               <Navigate to="/login" />
             )
@@ -139,7 +150,7 @@ const App = () => {
         />
         <Route
           path="/profiles/:id"
-          element={<ShowProfile profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user} handleDeleteDatePlan={handleDeleteDatePlan}/>}
+          element={<ShowProfile profiles={profiles} proIdx={proIdx} datePlans={datePlans} user={user} handleDeleteDatePlan={handleDeleteDatePlan} findProfileIndex={findProfileIndex}/>}
         />
 
         <Route
