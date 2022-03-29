@@ -102,7 +102,7 @@ const App = () => {
   const handleAddIceBreaker = async newIceBreaker => {
     const IceBreaker = await IcebreakersService.create(newIceBreaker)
     setDatePlans([...iceBreakers, IceBreaker])
-    navigate('/profiledetail')
+    navigate('/icebreakers')
   }
 
   return (
@@ -165,7 +165,7 @@ const App = () => {
         />
         <Route
         path="/dateplans/:id"
-        element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan} handleDeleteDatePlan={handleDeleteDatePlan} profiles={profiles} proIdx={proIdx} findProfileIndex={findProfileIndex}/> : <Navigate to="/signin" /> }
+        element={ user ? <ShowDateplan user={user} datePlans={datePlans} handleEditDatePlan={handleEditDatePlan}/> : <Navigate to="/signin" /> }
         />
         <Route
         path="/addicebreaker"
