@@ -34,6 +34,7 @@ const ShowProfile = (props) => {
         <h3>{profileDetail.relationshipStatus}</h3>
         <h3>{profileDetail.contactInfo}</h3>
         <h3>{profileDetail.aboutMe}</h3>
+        <img src={profileDetail.photo ? profileDetail.photo : 'No Image'} alt={'Person'} />
 
         {profileDetail.email === props.user.email ?
         <Link to='/editprofile' state={{profileDetail}}>Edit Profile</Link>
