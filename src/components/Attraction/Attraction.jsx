@@ -7,6 +7,7 @@ const Attraction = () => {
   const [formData, setFormData] = useState({
 		city: '',
   })
+  const [attractionData, setAttractionData] = useState({})
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -16,10 +17,9 @@ const Attraction = () => {
     evt.preventDefault()
     attractionService.getAttraction(formData.city)
     .then(attractionData =>{
-      console.log(attractionData);
+      setAttractionData(attractionData);
     })
-		// console.log(formData)
-    // handleAddDatePlan(formData)
+		
 
   }
 

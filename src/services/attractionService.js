@@ -1,4 +1,4 @@
-const BASE_URL = "https://app.ticketmaster.com/discovery/v2"
+const BASE_URL = `${process.env.REACT_APP_BACKEND_SERVER_URL}/api/attractions`
 
 function getAttraction(city) {
   return fetch(`${BASE_URL}/${city}`)
