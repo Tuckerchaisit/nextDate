@@ -34,7 +34,13 @@ const ShowProfile = (props) => {
         <h3>{profileDetail.relationshipStatus}</h3>
         <h3>{profileDetail.contactInfo}</h3>
         <h3>{profileDetail.aboutMe}</h3>
+
+        {profileDetail.email === props.user.email ?
         <Link to='/editprofile' state={{profileDetail}}>Edit Profile</Link>
+        :
+        ''
+        }
+        
         <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user} handleDeleteDatePlan={props.handleDeleteDatePlan} />
     </div>
 
