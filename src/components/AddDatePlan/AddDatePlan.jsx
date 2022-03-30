@@ -113,7 +113,7 @@ function AddDatePlan(props) {
 				</div>
 			</form>
 
-			<Attraction/>
+	
 		</>
 	)
 }
