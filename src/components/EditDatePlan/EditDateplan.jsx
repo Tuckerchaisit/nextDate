@@ -6,7 +6,6 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
   const location = useLocation()
   
 	
-  
   const [formData, setFormData] = useState(location.state.datePlanDetail)
   const formElement = useRef()
 

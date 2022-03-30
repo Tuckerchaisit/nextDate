@@ -16,4 +16,17 @@ function getProfileDetails(id){
   .then(res => res.json())
 }
 
-export { getAllProfiles, getProfileDetails }
+function update(editProfile) {
+  return fetch(`${BASE_URL}/${editProfile._id}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(editProfile)
+  })
+	.then(res => res.json())
+}
+
+
+export { getAllProfiles, getProfileDetails, update }

@@ -110,6 +110,17 @@ const App = () => {
     navigate('/icebreakers')
   }
 
+  const handleEditProfile = updatedProfile => {
+    profileService.update(updatedProfile)
+    .then(updatedProfile => {
+      const newProfileArray = profiles.map(profile => 
+        profile._id === updatedProfile._id ? updatedProfile : profile
+      )
+      setProfiles(newProfileArray)
+      navigate(`/profiles/${profiles[proIdx]._id}`)
+  })
+}
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -182,7 +193,7 @@ const App = () => {
         />
         <Route
         path='/editprofile'
-        element={user? <EditProfile /> : <Navigate to="/signin" />}
+        element={user? <EditProfile handleEditProfile={handleEditProfile}/> : <Navigate to="/signin" />}
         />
       </Routes>
       

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom'
 
-const EditProfile = ({profileDetail}) => {
+const EditProfile = ({profileDetail, handleEditProfile}) => {
   const location = useLocation()
 
   const [formData, setFormData] = useState(location.state.profileDetail)
@@ -86,7 +86,7 @@ const EditProfile = ({profileDetail}) => {
       </div>
       <div >
         <label htmlFor="contactInfo" className="address">
-          Location
+          Contact Info:
         </label>
         <input
           type="text"
