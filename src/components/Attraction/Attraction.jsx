@@ -28,7 +28,10 @@ const Attraction = () => {
   useEffect(()=> {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
-
+  
+  const attractionList = attractionData._embedded?.events
+  console.log(attractionList);
+  
   return ( 
     <>
     <h1>this is Attraction</h1>
@@ -56,6 +59,15 @@ const Attraction = () => {
 					</button>
 				</div>
 			</form>
+      {attractionData.length !== 0 ?
+      attractionList.map(attraction =>
+        <>
+          <h1>{attraction.name}</h1>
+          <h1>{attraction.dates.start}</h1>
+        </>
+      ): ""
+      }
+     
     </>
    );
 }
