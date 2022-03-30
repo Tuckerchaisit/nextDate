@@ -22,6 +22,14 @@ const DatePlanList = (props) => {
 
   return (
     <>
+     {ownerEmail[0] === props.user.email ? 
+     <>
+        <Link to="/new">Add Date Plan</Link>
+    </>
+    :
+    ""
+     }
+     
       <h1>My Date Plans</h1>
       <div className="datePlan-container">
         {props.datePlans
@@ -38,13 +46,7 @@ const DatePlanList = (props) => {
             )}
       </div> 
      
-     {ownerEmail[0] === props.user.email ? 
-     <>
-        <Link to="/new">Add Date Plan</Link>
-    </>
-    :
-    ""
-     }
+    
      </>
   )
 }
