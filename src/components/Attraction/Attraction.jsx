@@ -7,7 +7,7 @@ const Attraction = () => {
   const [formData, setFormData] = useState({
 		city: '',
   })
-  const [attractionData, setAttractionData] = useState({})
+  const [attractions, setAttractions] = useState([])
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
@@ -17,7 +17,7 @@ const Attraction = () => {
     evt.preventDefault()
     attractionService.getAttraction(formData.city)
     .then(attractionData =>{
-      setAttractionData(attractionData);
+      setAttractions(attractionData._embedded.events);
     })
 		
 
@@ -28,7 +28,10 @@ const Attraction = () => {
   useEffect(()=> {
     formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
   }, [formData])
-
+  
+  // const attractionList = attractionData._embedded?.events
+  console.log(attractions);
+  
   return ( 
     <>
     <h1>this is Attraction</h1>
@@ -56,6 +59,14 @@ const Attraction = () => {
 					</button>
 				</div>
 			</form>
+      {attractions?.map(attraction =>
+        <div key={attraction.id}>
+        <h1>hello</h1>
+          <h1>{attraction.name}</h1>
+          <h1>{attraction.dates.start.localTime}</h1>
+        </div>
+      )}
+     
     </>
    );
 }

@@ -103,8 +103,9 @@ const App = () => {
   }
 
   const handleAddIceBreaker = async newIceBreaker => {
-    const IceBreaker = await IcebreakersService.create(newIceBreaker)
-    setDatePlans([...iceBreakers, IceBreaker])
+    const iceBreaker = await IcebreakersService.create(newIceBreaker)
+    console.log(iceBreaker);
+    setIceBreakers([...iceBreakers, iceBreaker])
     navigate('/icebreakers')
   }
 
