@@ -16,6 +16,8 @@ import ShowDateplan from './pages/ShowDateplan/ShowDateplan'
 import Icebreakers from './pages/Icebreakers/Icebreakers'
 import AddIceBreaker from './components/AddIceBreaker/AddIceBreaker'
 import ShowProfile from './pages/ShowProfile/ShowProfile'
+import Attraction from './components/Attraction/Attraction'
+
 
 
 
@@ -171,6 +173,10 @@ const App = () => {
         <Route
         path="/addicebreaker"
         element={ user ? <AddIceBreaker user={user} handleAddIceBreaker={handleAddIceBreaker} /> : <Navigate to="/signin" /> }
+        />
+        <Route
+        path="/attractions"
+        element={ user ? <Attraction /> : <Navigate to="/signin"/>}
         />
       </Routes>
       

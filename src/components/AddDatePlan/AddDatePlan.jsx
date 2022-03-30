@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import Attraction from "../Attraction/Attraction"
 
 function AddDatePlan(props) {
   const formElement = useRef()
@@ -111,6 +112,8 @@ function AddDatePlan(props) {
 					</button>
 				</div>
 			</form>
+
+	
 		</>
 	)
 }
