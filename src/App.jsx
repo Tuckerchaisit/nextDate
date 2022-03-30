@@ -110,9 +110,11 @@ const App = () => {
     navigate('/icebreakers')
   }
 
-  const handleEditProfile = updatedProfile => {
-    profileService.update(updatedProfile)
+  const handleEditProfile = async updatedProfile => {
+    console.log('user ID: ', user.profile)
+    profileService.update(updatedProfile, user.profile)
     .then(updatedProfile => {
+      console.log(updatedProfile)
       const newProfileArray = profiles.map(profile => 
         profile._id === updatedProfile._id ? updatedProfile : profile
       )

@@ -26,6 +26,7 @@ const SignupForm = props => {
 
   const handleSubmit = async e => {
     e.preventDefault()
+    console.log(formData)
     try {
       await authService.signup(formData)
       props.handleSignupOrLogin()
@@ -34,8 +35,6 @@ const SignupForm = props => {
       props.updateMessage(err.message)
     }
   }
-
- 
 
   const isFormInvalid = () => {
     return !(formData.name && formData.email && formData.password && formData.password === formData.passwordConf)

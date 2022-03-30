@@ -19,7 +19,18 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
 
   const handleSubmit = evt => {
 		evt.preventDefault()
-    handleEditProfile(formData)
+    const profileFormData = new FormData()
+    profileFormData.append('photo', formData.photo)
+    profileFormData.append('name', formData.name)
+    profileFormData.append('address', formData.address)
+    profileFormData.append('aboutMe', formData.aboutMe)
+    profileFormData.append('relationshipStatus', formData.relationshipStatus)
+    profileFormData.append('contactInfo', formData.contactInfo)
+    handleEditProfile(profileFormData)
+	}
+
+  const handleChangePhoto = evt => {
+		setFormData({...formData, photo: evt.target.files[0]})
 	}
 
   return (
@@ -97,6 +108,18 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
           onChange={handleChange}
         />
       </div>
+      <div >
+					<label htmlFor="photo">
+						Upload Photo
+					</label>
+					<input
+						type="file"
+						className="form-control"
+						id="photo"
+						name="photo"
+						onChange={handleChangePhoto}
+					/>
+				</div>
       <div>
         <button disabled={!validForm}>
           Submit
