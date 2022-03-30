@@ -1,21 +1,37 @@
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom'
 
-const EditProfile = (props) => {
+const EditProfile = ({profileDetail}) => {
   const location = useLocation()
 
+  const [formData, setFormData] = useState(location.state.profileDetail)
+  const formElement = useRef()
+  
+  const handleChange = evt => {
+		setFormData({ ...formData, [evt.target.name]: evt.target.value })
+	}
 
+  const [validForm, setValidForm] = useState(true)
+
+  useEffect(() => {
+		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
+	}, [formData])
+
+  const handleSubmit = evt => {
+		evt.preventDefault()
+    handleEditProfile(formData)
+	}
 
   return (
     <>
     <h1>Edit profile</h1>
-    {/* <form
+    <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      ref={formElement}
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>
+      <div >
+        <label htmlFor="name" >
           Name
         </label>
         <input
@@ -27,7 +43,7 @@ const EditProfile = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div >
         <label htmlFor="address" className="address">
           Location
         </label>
@@ -40,7 +56,7 @@ const EditProfile = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div >
         <label htmlFor="relationshipStatus" className="relationshipStatus">
           Relationship Status:
         </label>
@@ -55,7 +71,7 @@ const EditProfile = (props) => {
           <option value="In A Relationship">In A Relationship</option>
         </select>
       </div>
-      <div className={styles.inputContainer}>
+      <div >
         <label htmlFor="aboutMe" className="address">
           About Me:
         </label>
@@ -68,7 +84,7 @@ const EditProfile = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
+      <div >
         <label htmlFor="contactInfo" className="address">
           Location
         </label>
@@ -81,12 +97,12 @@ const EditProfile = (props) => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div>
+        <button disabled={!validForm}>
           Submit
         </button>
       </div>
-    </form> */}
+    </form>
     </>
   );
 }
