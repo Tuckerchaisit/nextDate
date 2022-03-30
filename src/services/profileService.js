@@ -16,14 +16,14 @@ function getProfileDetails(id){
   .then(res => res.json())
 }
 
-function update(editProfile) {
-  return fetch(`${BASE_URL}/${editProfile._id}`, {
+function update(editProfile, id) {
+  return fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-      'content-type': 'application/json'
+      // 'content-type': 'application/json'
     },
-    body: JSON.stringify(editProfile)
+    body: editProfile
   })
 	.then(res => res.json())
 }

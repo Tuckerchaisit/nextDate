@@ -6,7 +6,7 @@ const Profiles = (props) => {
   const allProfiles = props.profiles.map((profile, idx) => {
     
     return (
-      <Link to={`/profiles/${profile._id}`} >
+      <Link to={`/profiles/${profile._id}`} key={profile._id} >
         <p onClick={() => props.handleClick(idx)}>{profile.name}</p>
       </Link>
     )
