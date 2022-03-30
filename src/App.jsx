@@ -17,6 +17,7 @@ import Icebreakers from './pages/Icebreakers/Icebreakers'
 import AddIceBreaker from './components/AddIceBreaker/AddIceBreaker'
 import ShowProfile from './pages/ShowProfile/ShowProfile'
 import Attraction from './components/Attraction/Attraction'
+import EditProfile from './components/EditProfile/EditProfile'
 
 
 
@@ -109,6 +110,17 @@ const App = () => {
     navigate('/icebreakers')
   }
 
+  const handleEditProfile = updatedProfile => {
+    profileService.update(updatedProfile)
+    .then(updatedProfile => {
+      const newProfileArray = profiles.map(profile => 
+        profile._id === updatedProfile._id ? updatedProfile : profile
+      )
+      setProfiles(newProfileArray)
+      navigate(`/profiles/${profiles[proIdx]._id}`)
+  })
+}
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -178,6 +190,10 @@ const App = () => {
         <Route
         path="/attractions"
         element={ user ? <Attraction /> : <Navigate to="/signin"/>}
+        />
+        <Route
+        path='/editprofile'
+        element={user? <EditProfile handleEditProfile={handleEditProfile}/> : <Navigate to="/signin" />}
         />
       </Routes>
       

@@ -12,6 +12,8 @@ const SignupForm = props => {
     email: '',
     password: '',
     passwordConf: '',
+    aboutMe: '',
+    contactInfo: ''
   })
 
   const handleChange = e => {
@@ -122,6 +124,32 @@ const SignupForm = props => {
           id="confirm"
           value={formData.passwordConf}
           name="passwordConf"
+          onChange={handleChange}
+        />
+      </div>
+      <div >
+        <label htmlFor="aboutMe" className="address">
+          About Me:
+        </label>
+        <input
+          type="text"
+          autoComplete="off"
+          id="aboutMe"
+          value={formData.aboutMe}
+          name="aboutMe"
+          onChange={handleChange}
+        />
+      </div>
+      <div >
+        <label htmlFor="contactInfo" className="address">
+          Contact Info:
+        </label>
+        <input
+          type="text"
+          autoComplete="off"
+          id="contactInfo"
+          value={formData.contactInfo}
+          name="contactInfo"
           onChange={handleChange}
         />
       </div>
