@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import * as attractionService from '../../services/attractionService'
+import { ExternalLink } from "react-external-link"
 
 const Attraction = () => {
   const formElement = useRef()
@@ -60,11 +61,14 @@ const Attraction = () => {
 				</div>
 			</form>
       {attractions?.map(attraction =>
-        <div key={attraction.id}>
-        <h1>hello</h1>
-          <h1>{attraction.name}</h1>
-          <h1>{attraction.dates.start.localTime}</h1>
-        </div>
+       <div key={attraction.id} className="attractions">
+       <h1>Attraction</h1>
+         <img src={attraction.images[9].url} alt="attraction-images" /><br/>
+         <h1>{attraction.name}</h1>
+         <h2>Date:{attraction.dates.start.localDate}</h2>
+         <h2>Time:{attraction.dates.start.localTime}</h2>
+         <ExternalLink href={attraction.url}>get tickets</ExternalLink>
+       </div>
       )}
      
     </>
