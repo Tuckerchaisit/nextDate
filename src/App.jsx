@@ -133,7 +133,7 @@ const App = () => {
           path="/icebreakers"
           element={
             user ? (
-              <Icebreakers profiles={profiles} handleClick={handleClick} iceBreakers={iceBreakers} handleDeleteIceBreaker={handleDeleteIceBreaker}/>
+              <Icebreakers profiles={profiles} user={user} handleClick={handleClick} iceBreakers={iceBreakers} handleDeleteIceBreaker={handleDeleteIceBreaker}/>
             ) : (
               <Navigate to="/login" />
             )

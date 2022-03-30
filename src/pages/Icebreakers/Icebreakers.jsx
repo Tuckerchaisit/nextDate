@@ -3,24 +3,24 @@ import { Link } from "react-router-dom";
 const Icebreakers = (props) => {
 
   const IceBreakerList = props.iceBreakers.map((icebreaker) => {
-
-    // console.log(props.iceBreakers)
-    // console.log(icebreaker._id)
+    console.log(icebreaker.owner.name);
     return (
       <>
       {/* <Link to="/profile">See Profile</Link> */}
-        <p>{icebreaker.funFact}</p>
-        <p>{icebreaker.question}</p>
-        <button
-          onClick={() => props.handleDeleteIceBreaker(icebreaker._id)}
-        >
+        <h2>{icebreaker.owner.name}:</h2>
+        <p>Fun fact: {icebreaker.funFact}</p>
+        <p>Question: {icebreaker.question}</p>
+
+        {icebreaker.owner.email === props.user.email ?
+        <button onClick={() => props.handleDeleteIceBreaker(icebreaker._id)}>
           Delete
         </button>
+        : ''
+        }
       </>
     );
   });
 
-  // const ownerEmail = props.iceBreakers.owner.map(profile => profile.email)
 
   return (
     <>
