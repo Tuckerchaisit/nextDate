@@ -33,6 +33,7 @@ const App = () => {
   const [datePlans, setDatePlans] = useState([])
   const [iceBreakers, setIceBreakers] = useState([])
   
+  
   function handleClick(idx){
     setProIdx(idx)
   }
@@ -60,6 +61,7 @@ const App = () => {
     .then(datePlans => setDatePlans(datePlans))
   }, [])
 
+  
   useEffect(() => {
     IcebreakersService.getAllIceBreakers() 
     .then(iceBreakers => setIceBreakers(iceBreakers))
@@ -83,7 +85,7 @@ const App = () => {
   }
 
   const handleEditDatePlan = updatedDatePlan => {
-    console.log('User: ', user, " ", "Profile", profiles)
+    // console.log('User: ', user, " ", "Profile", profiles)
     datePlanService.update(updatedDatePlan)
     .then(updatedDatePlan => {
       const newDatePlanArray = datePlans.map(datePlan => 
@@ -127,6 +129,7 @@ const App = () => {
       navigate(`/profiles/${profiles[proIdx]._id}`)
   })
 }
+
 
   return (
     <>
