@@ -1,0 +1,89 @@
+.mainbody{
+  display:flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: 40px;
+  text-align: center;
+  
+
+  .add-IB{
+    font-size: 1.5rem;
+    width: 300px;
+    border-radius: 8px;
+    padding: 10px 0;
+    background-color: #f3f0f5e7;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 2px 4px 0 rgba(67, 67, 67, 0.2), 0 6px 10px 0 rgba(68, 68, 68, 0.19);
+  }
+
+  .add-IB:hover{
+    background-color: #9163CB;
+    color: white;
+  }
+
+  .title{
+    font-weight: 900;
+    font-size: 5rem;
+    color: rgb(85, 81, 81);
+  }
+}
+
+.container{
+  display: flex;
+  text-align: left;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  background-color: #f3f0f5e7;
+  height:max-content;
+  width: 95%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  a{
+    text-decoration: none;
+    color: #482e77;
+  }
+
+  img{
+    width: 100px;
+    border-radius: 50%;
+    max-height: 100%;
+    margin-left: 45px;
+    margin-top: 20px;
+  }
+
+  .name{
+    margin: 5px 0 15px 55px;
+    font-weight: 900;
+    font-size: 1.8rem;
+  }
+
+  .name:hover{
+    color:#B185DB;
+  }
+
+  .info{
+    margin: 10px 0  10px 40px; 
+    font-size: 1.5rem;
+    color: #482e77;
+    font-weight: 700;
+  }
+
+  .dlt-btn{
+    margin: 10px 10px auto auto;
+    font-size: 1.2rem;
+    font-weight: 900;
+    width: 3%;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .dlt-btn:hover{
+    color:white;
+    background-color: #482e77;
+    border-radius: 12px;
+  }
+}
+

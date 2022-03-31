@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import * as attractionService from '../../services/attractionService'
 import { ExternalLink } from "react-external-link"
+import "./attraction.scss"
 
 const Attraction = () => {
   const formElement = useRef()
