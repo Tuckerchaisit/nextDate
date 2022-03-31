@@ -8,9 +8,12 @@ const Profiles = (props) => {
     return (
       <>
       <Link to={`/profiles/${profile._id}`}  >
-        <p onClick={() => props.handleClick(idx)} >{profile.name}</p>
-      </Link>
       <img src={profile.photo ? profile.photo : 'No Image'} alt={'Person'} />
+        <p onClick={() => props.handleClick(idx)} >
+          Name: {profile.name}<br/>
+          Location: {profile.address}<br/>
+          Status: {profile.relationshipStatus}</p>
+      </Link>
       </>
     )
   })
