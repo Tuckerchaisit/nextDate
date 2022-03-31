@@ -52,6 +52,38 @@ function getDatePlanDetails(id){
   .then(res => res.json())
 }
 
+function getAllChats(id) {
+  console.log('Get All Chats: ', id)
+  return fetch(`${BASE_URL}/${id}` , {
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`
+    }
+  })
+  .then(res => res.json())
+}
+
+function createChat(newChatData, id) {
+  console.log(id)
+  return fetch(`${BASE_URL}/${id}/chat`, {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify(newChatData)
+  })
+  .then(res => res.json())
+}
+
+function deleteChat(id) {
+  return fetch(`${BASE_URL}/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+    },
+  })
+  .then(res => res.json())
+}
 
 
 export {
@@ -59,5 +91,8 @@ export {
   create,
   update,
   deleteOne,
-  getDatePlanDetails
+  getDatePlanDetails,
+  getAllChats,
+  createChat,
+  deleteChat
 }
