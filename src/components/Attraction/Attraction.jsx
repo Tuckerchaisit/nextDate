@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import * as attractionService from '../../services/attractionService'
+import { ExternalLink } from "react-external-link"
 
 const Attraction = () => {
   const formElement = useRef()
@@ -34,11 +35,11 @@ const Attraction = () => {
   
   return ( 
     <>
-    <h1>this is Attraction</h1>
+    <h1>Search For Date Ideas</h1>
     <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
 				<div>
 					<label htmlFor="city-input" className="form-label">
-						City :
+						City: 
 					</label>
 					<input 
 						className="form-control"
@@ -55,16 +56,20 @@ const Attraction = () => {
 						type="submit"
             disabled={!validForm}
 					>
-						Get Attraction
+						Get Ideas
 					</button>
 				</div>
 			</form>
+
+
       {attractions?.map(attraction =>
-        <div key={attraction.id}>
-        <h1>hello</h1>
-          <h1>{attraction.name}</h1>
-          {/* <h1>{attraction.dates.start.localTime}</h1> */}
-        </div>
+       <div key={attraction.id} className="attractions">
+         <h1>{attraction.name}</h1>
+         <img src={attraction.images[9].url} alt="attraction-images" /><br/>
+         <h2>Date: {attraction.dates.start.localDate}</h2>
+         <h2>Time: {attraction.dates.start.localTime}</h2>
+         <ExternalLink href={attraction.url}>Get Tickets</ExternalLink>
+       </div>
       )}
      
     </>

@@ -18,18 +18,16 @@ const ShowDateplan = ({datePlans, datePlan, handleDeleteDatePlan, ownerId, profi
     .then(datePlanDetails => setDatePlanDetail(datePlanDetails))
   },[])
   
-  console.log(datePlanDetail.owner?.email)
-  console.log(user.email)
-  
   
   return ( 
     <>
       <div>
         <h1>{datePlanDetail.title}</h1>
-        <h3>{datePlanDetail.location}</h3>
-        <p>{datePlanDetail.detail}</p>
-        <p>{datePlanDetail.food}</p>
-        <p>{datePlanDetail.activity}</p>
+        <img src={datePlanDetail.photo ? datePlanDetail.photo : 'No Image'} alt={'Date Plan'} />
+        <h3>Location: {datePlanDetail.location}</h3>
+        <p>Date Details: {datePlanDetail.detail}</p>
+        <p>Food: {datePlanDetail.food}</p>
+        <p>Activities: {datePlanDetail.activity}</p>
         {datePlanDetail.owner?.email === user.email ? 
           <Link to="/edit" state={{ datePlanDetail }}>
             Edit Date Plan

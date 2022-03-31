@@ -15,10 +15,13 @@ export default function Menu({ user, handleLogout, menuOpen, setMenuOpen}) {
               <Link to="/icebreakers">Icebreaker</Link>
             </li>
             <li onClick={()=>setMenuOpen(false)}>
-              <Link to="/attractions">Events nearby</Link>
+              <Link to={`/profiles/${user.profile}`}>My Profile</Link>
             </li>
             <li onClick={()=>setMenuOpen(false)}>
-              <Link to="" onClick={handleLogout}>LOG OUT</Link>
+              <Link to="/attractions">Date Ideas</Link>
+            </li>
+            <li onClick={()=>setMenuOpen(false)}>
+              <Link to="" onClick={handleLogout}>Log Out</Link>
             </li>
             <li onClick={()=>setMenuOpen(false)}>
               <Link to="/changePassword">Change Password</Link>

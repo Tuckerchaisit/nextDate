@@ -56,7 +56,7 @@ const App = () => {
   // console.log(user)
 
   useEffect(() => {
-    datePlanService.getAllDatePlans() 
+    user && datePlanService.getAllDatePlans() 
     .then(datePlans => setDatePlans(datePlans))
   }, [])
 
@@ -76,12 +76,14 @@ const App = () => {
   }
 
   const handleAddDatePlan = async newDatePlanData => {
-    const newDatePlan = await datePlanService.create(newDatePlanData)
+    console.log('newDatePlanData: ', newDatePlanData)
+    const newDatePlan = await datePlanService.create(newDatePlanData, user.profile)
     setDatePlans([...datePlans, newDatePlan])
     navigate(`/profiles/${profiles[proIdx]._id}`)
   }
 
   const handleEditDatePlan = updatedDatePlan => {
+    console.log('User: ', user, " ", "Profile", profiles)
     datePlanService.update(updatedDatePlan)
     .then(updatedDatePlan => {
       const newDatePlanArray = datePlans.map(datePlan => 
@@ -113,9 +115,11 @@ const App = () => {
     navigate('/icebreakers')
   }
 
-  const handleEditProfile = updatedProfile => {
-    profileService.update(updatedProfile)
+  const handleEditProfile = async updatedProfile => {
+    console.log('updatedProfile data : ', updatedProfile)
+    profileService.update(updatedProfile, user.profile)
     .then(updatedProfile => {
+      console.log(updatedProfile)
       const newProfileArray = profiles.map(profile => 
         profile._id === updatedProfile._id ? updatedProfile : profile
       )
