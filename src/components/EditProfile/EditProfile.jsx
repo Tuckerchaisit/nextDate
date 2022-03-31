@@ -19,6 +19,7 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
 
   const handleSubmit = evt => {
 		evt.preventDefault()
+    console.log(formData)
     const profileFormData = new FormData()
     profileFormData.append('photo', formData.photo)
     profileFormData.append('name', formData.name)

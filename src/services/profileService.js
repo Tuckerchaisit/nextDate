@@ -17,6 +17,7 @@ function getProfileDetails(id){
 }
 
 function update(editProfile, id) {
+  console.log(editProfile)
   return fetch(`${BASE_URL}/${id}`, {
     method: 'PUT',
     headers: {
