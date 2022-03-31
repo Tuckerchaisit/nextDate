@@ -17,9 +17,9 @@ function create(newDatePlanData) {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-      'content-type': 'application/json'
+      // 'content-type': 'application/json'
     },
-    body: JSON.stringify(newDatePlanData)
+    body: newDatePlanData
   })
   .then(res => res.json())
 }

@@ -24,12 +24,19 @@ function AddDatePlan(props) {
   const handleSubmit = evt => {
     evt.preventDefault()
 		console.log(formData)
-		
-    props.handleAddDatePlan(formData)
-		
+		const datePlanFormData = new FormData()
+		datePlanFormData.append('photo', formData.photo)
+		datePlanFormData.append('title', formData.title)
+		datePlanFormData.append('location', formData.location)
+		datePlanFormData.append('activity', formData.activity)
+		datePlanFormData.append('food', formData.food)
+		datePlanFormData.append('detail', formData.detail)
+    props.handleAddDatePlan(datePlanFormData)
   }
 
-
+	const handleChangePhoto = evt => {
+		setFormData({...formData, photo: evt.target.files[0]})
+	}
 
 	return (
 		<>
@@ -101,6 +108,18 @@ function AddDatePlan(props) {
 						name="detail"
             value={formData.detail}
             onChange={handleChange}
+					/>
+				</div>
+				<div >
+					<label htmlFor="photo">
+						Upload Photo
+					</label>
+					<input
+						type="file"
+						className="form-control"
+						id="photo"
+						name="photo"
+						onChange={handleChangePhoto}
 					/>
 				</div>
 				<div>

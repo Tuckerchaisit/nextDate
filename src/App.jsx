@@ -73,6 +73,7 @@ const App = () => {
   }
 
   const handleAddDatePlan = async newDatePlanData => {
+    console.log('newDatePlanData: ', newDatePlanData)
     const newDatePlan = await datePlanService.create(newDatePlanData)
     setDatePlans([...datePlans, newDatePlan])
     navigate(`/profiles/${profiles[proIdx]._id}`)
@@ -111,7 +112,7 @@ const App = () => {
   }
 
   const handleEditProfile = async updatedProfile => {
-    console.log('user ID: ', user.profile)
+    console.log('updatedProfile data : ', updatedProfile)
     profileService.update(updatedProfile, user.profile)
     .then(updatedProfile => {
       console.log(updatedProfile)
