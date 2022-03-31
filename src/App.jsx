@@ -74,12 +74,13 @@ const App = () => {
 
   const handleAddDatePlan = async newDatePlanData => {
     console.log('newDatePlanData: ', newDatePlanData)
-    const newDatePlan = await datePlanService.create(newDatePlanData)
+    const newDatePlan = await datePlanService.create(newDatePlanData, user.profile)
     setDatePlans([...datePlans, newDatePlan])
     navigate(`/profiles/${profiles[proIdx]._id}`)
   }
 
   const handleEditDatePlan = updatedDatePlan => {
+    console.log('User: ', user, " ", "Profile", profiles)
     datePlanService.update(updatedDatePlan)
     .then(updatedDatePlan => {
       const newDatePlanArray = datePlans.map(datePlan => 

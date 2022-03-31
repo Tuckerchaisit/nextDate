@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 const Icebreakers = (props) => {
 
   const IceBreakerList = props.iceBreakers.map((icebreaker) => {
+    console.log(icebreaker)
     
     const profId = icebreaker.owner._id
     return (
       <>
       <div>
         <Link to={`/profiles/${profId}`}>
+        <img src={icebreaker.owner.photo ? icebreaker.owner.photo : 'No Image'} alt={'Person'} />
         <h2 key={profId}>{icebreaker.owner.name}:</h2>
         </Link>
         <p >Fun fact: {icebreaker.funFact}</p>

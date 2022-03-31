@@ -4,13 +4,16 @@ import { Link } from 'react-router-dom'
 const Profiles = (props) => {
 
   const allProfiles = props.profiles.map((profile, idx) => {
-    console.log(profile._id)
+    console.log(profile)
     return (
       <>
       <Link to={`/profiles/${profile._id}`}  >
-        <p onClick={() => props.handleClick(idx)} >{profile.name}</p>
-      </Link>
       <img src={profile.photo ? profile.photo : 'No Image'} alt={'Person'} />
+        <p onClick={() => props.handleClick(idx)} >
+          Name: {profile.name}<br/>
+          Location: {profile.address}<br/>
+          Status: {profile.relationshipStatus}</p>
+      </Link>
       </>
     )
   })
