@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import styles from './SignupForm.module.css'
+import './signupForm.scss'
 import * as authService from '../../services/authService'
 
 const SignupForm = props => {
@@ -44,11 +44,11 @@ const SignupForm = props => {
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
-      className={styles.container}
+      className="SUF-container"
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="name" className={styles.label}>
-          Name
+      <div className="input-SUF-container">
+        <label htmlFor="name" className="USF-label">
+          Name :
         </label>
         <input
           type="text"
@@ -59,9 +59,9 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="address" className="address">
-          Location
+      <div className="input-SUF-container">
+        <label htmlFor="address" className="USF-label">
+          Location :
         </label>
         <input
           type="text"
@@ -72,9 +72,9 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="relationshipStatus" className="relationshipStatus">
-          Relationship Status:
+      <div className="input-SUF-container">
+        <label htmlFor="relationshipStatus" className="USF-label">
+          Relationship Status :
         </label>
         <select
           name="relationshipStatus"
@@ -87,9 +87,9 @@ const SignupForm = props => {
           <option value="In A Relationship">In A Relationship</option>
         </select>
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>
-          Email
+      <div className="input-SUF-container">
+        <label htmlFor="email" className="USF-label">
+          Email :
         </label>
         <input
           type="text"
@@ -100,9 +100,9 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>
-          Password
+      <div className="input-SUF-container">
+        <label htmlFor="password" className="USF-label">
+          Password :
         </label>
         <input
           type="password"
@@ -113,9 +113,9 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="confirm" className={styles.label}>
-          Confirm Password
+      <div className="input-SUF-container">
+        <label htmlFor="confirm" className="USF-label">
+          Confirm Password :
         </label>
         <input
           type="password"
@@ -126,8 +126,8 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div >
-        <label htmlFor="aboutMe" className="address">
+      <div className='input-SUF-container'>
+        <label htmlFor="aboutMe" className="USF-label">
           About Me:
         </label>
         <input
@@ -139,9 +139,9 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div >
-        <label htmlFor="contactInfo" className="address">
-          Contact Info:
+      <div className='input-SUF-container' >
+        <label htmlFor="contactInfo" className="USF-label">
+          Contact Info :
         </label>
         <input
           type="text"
@@ -152,12 +152,12 @@ const SignupForm = props => {
           onChange={handleChange}
         />
       </div>
-      <div className={styles.inputContainer}>
-        <button disabled={isFormInvalid()} className={styles.button}>
+      <div className="input-SUFContainer">
+        <button disabled={isFormInvalid()} className="USF-button">
           Sign Up
-        </button>
+        </button >
         <Link to="/">
-          <button>Cancel</button>
+          <button className="USF-button">Cancel</button>
         </Link>
       </div>
     </form>

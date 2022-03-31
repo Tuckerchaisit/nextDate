@@ -25,7 +25,7 @@ import "./app.scss"
 
 
 const App = () => {
-  const [menuOpen,setMenuOpen] = useState(true)
+  const [menuOpen,setMenuOpen] = useState(false)
 
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
