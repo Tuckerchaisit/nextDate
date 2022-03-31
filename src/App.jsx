@@ -19,6 +19,7 @@ import ShowProfile from './pages/ShowProfile/ShowProfile'
 import Attraction from './components/Attraction/Attraction'
 import EditProfile from './components/EditProfile/EditProfile'
 import Menu from './components/Menu/Menu'
+import "./app.scss"
 
 
 
@@ -129,7 +130,7 @@ const App = () => {
 }
 
   return (
-    <>
+    <div className='main-app-body'>
       <NavBar user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen} handleLogout={handleLogout} />
       <Menu user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen} handleLogout={handleLogout} />
 
@@ -206,7 +207,7 @@ const App = () => {
         />
       </Routes>
       
-    </>
+    </div>
   );
 }
 

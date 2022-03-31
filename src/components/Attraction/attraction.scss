@@ -1,0 +1,52 @@
+.attraction-ctn{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+
+  .attractions{
+    width: 380px;
+    box-shadow: 0 2px 4px 0 rgba(67, 67, 67, 0.2), 0 6px 10px 0 rgba(68, 68, 68, 0.19);
+    margin: 20px;
+    margin-top: 40px;
+    padding-bottom: 50px;
+    border-radius: 12px;
+    background-color: #f3f0f5e7;
+
+    img{
+      width: 330px;
+      border-radius: 12px;
+    }
+
+    .idea-name{
+      font-size: 1.6rem;
+      padding: 12px;
+      font-weight: 900;
+      color:rgb(60, 57, 57);
+    }
+
+    .idea-info{
+      font-weight: 500;
+      color:rgb(60, 57, 57);
+    }
+
+    .tkt-btn{
+      font-size: 1.2rem;
+      border-radius: 8px;
+      background-color: #f3f0f5e7;
+      color:rgb(60, 57, 57);
+      border:solid 2px rgb(60, 57, 57);
+      cursor:pointer;
+    }
+
+    .tkt-btn:hover{
+      background-color: #9163CB;
+      color: white;
+    }
+  }
+}
+
+.date-Idea{
+  margin-bottom: 20px;
+}
