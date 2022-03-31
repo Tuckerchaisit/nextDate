@@ -53,7 +53,7 @@ const App = () => {
   // console.log(user)
 
   useEffect(() => {
-    datePlanService.getAllDatePlans() 
+    user && datePlanService.getAllDatePlans() 
     .then(datePlans => setDatePlans(datePlans))
   }, [])
 
