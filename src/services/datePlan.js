@@ -25,13 +25,14 @@ function create(newDatePlanData) {
 }
 
 function update(editDatePlan) {
-  return fetch(`${BASE_URL}/${editDatePlan._id}`, {
+  console.log(editDatePlan.get('_id'))
+  return fetch(`${BASE_URL}/${editDatePlan.get('_id')}`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-      'content-type': 'application/json'
+      // 'content-type': 'application/json'
     },
-    body: JSON.stringify(editDatePlan)
+    body: editDatePlan
   })
 	.then(res => res.json())
 }

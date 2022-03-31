@@ -4,9 +4,8 @@ import { useLocation } from 'react-router-dom'
 
 const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
   const location = useLocation()
-  
-	
   const [formData, setFormData] = useState(location.state.datePlanDetail)
+	const [validForm, setValidForm] = useState(true)
   const formElement = useRef()
 
 
@@ -14,7 +13,6 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 		setFormData({ ...formData, [evt.target.name]: evt.target.value })
 	}
 
-  const [validForm, setValidForm] = useState(true)
 
   useEffect(() => {
 		formElement.current.checkValidity() ? setValidForm(true) : setValidForm(false)
@@ -22,7 +20,21 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 
   const handleSubmit = evt => {
 		evt.preventDefault()
-    handleEditDatePlan(formData)
+		console.log(formData)
+		const datePlanFormData = new FormData()
+    datePlanFormData.append('photo', formData.photo)
+    datePlanFormData.append('title', formData.title)
+    datePlanFormData.append('location', formData.location)
+    datePlanFormData.append('activity', formData.activity)
+    datePlanFormData.append('detail', formData.detail)
+    datePlanFormData.append('food', formData.food)
+		datePlanFormData.append('_id', formData._id)
+		console.log(datePlanFormData)
+    handleEditDatePlan(datePlanFormData)
+	}
+
+	const handleChangePhoto = evt => {
+		setFormData({...formData, photo: evt.target.files[0]})
 	}
 
   return (
@@ -95,6 +107,18 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 						name="detail"
             value={formData?.detail}
             onChange={handleChange}
+					/>
+				</div>
+				<div >
+					<label htmlFor="photo">
+						Upload Photo
+					</label>
+					<input
+						type="file"
+						className="form-control"
+						id="photo"
+						name="photo"
+						onChange={handleChangePhoto}
 					/>
 				</div>
 				<div>
