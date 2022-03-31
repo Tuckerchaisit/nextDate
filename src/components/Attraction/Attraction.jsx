@@ -63,7 +63,7 @@ const Attraction = () => {
         <div key={attraction.id}>
         <h1>hello</h1>
           <h1>{attraction.name}</h1>
-          <h1>{attraction.dates.start.localTime}</h1>
+          {/* <h1>{attraction.dates.start.localTime}</h1> */}
         </div>
       )}
      

@@ -1,0 +1,44 @@
+.menu {
+  width: 350px;
+  height: 100vh;
+  background-color: #433277;
+  position: fixed;
+  top: 0;
+  right: -350px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  // justify-content:;
+  transition: all 1s ease;
+
+  &.active {
+    right: 0;
+  }
+
+  nav{
+    width: 90%;
+  }
+  ul {
+    margin-top: 30%;
+    padding: 0;
+    list-style: none;
+    font-size: 30px;
+    font-weight: 400;
+    color: whitesmoke;
+    width: 90%;
+
+    li {
+      margin-bottom: 45px;
+      a {
+        font-size: inherit;
+        color: inherit;
+        text-decoration: none;
+      }
+
+      &:hover {
+        font-weight: 900;
+      }
+    }
+  }
+}

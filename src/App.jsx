@@ -18,11 +18,14 @@ import AddIceBreaker from './components/AddIceBreaker/AddIceBreaker'
 import ShowProfile from './pages/ShowProfile/ShowProfile'
 import Attraction from './components/Attraction/Attraction'
 import EditProfile from './components/EditProfile/EditProfile'
+import Menu from './components/Menu/Menu'
 
 
 
 
 const App = () => {
+  const [menuOpen,setMenuOpen] = useState(true)
+
   const [user, setUser] = useState(authService.getUser())
   const navigate = useNavigate()
   const [profiles, setProfiles] = useState([])
@@ -123,7 +126,9 @@ const App = () => {
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen} handleLogout={handleLogout} />
+      <Menu user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen} handleLogout={handleLogout} />
+
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
