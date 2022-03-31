@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import React from 'react'
 
 const Icebreakers = (props) => {
 
@@ -7,7 +8,7 @@ const Icebreakers = (props) => {
     
     const profId = icebreaker.owner._id
     return (
-      <>
+      <React.Fragment key={icebreaker._id}>
       <div>
         <Link to={`/profiles/${profId}`}>
         <img src={icebreaker.owner.photo ? icebreaker.owner.photo : 'No Image'} alt={'Person'} />
@@ -24,7 +25,7 @@ const Icebreakers = (props) => {
         : ''
         }
       </div>
-      </>
+      </React.Fragment>
     );
   });
 
