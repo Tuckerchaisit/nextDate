@@ -137,7 +137,13 @@ const App = () => {
       <Menu user={user} menuOpen={menuOpen} setMenuOpen={setMenuOpen} handleLogout={handleLogout} />
 
       <Routes>
-        <Route path="/" element={<Landing user={user} />} />
+        <Route path="/" element={
+            user ? (
+              <Profiles profiles={profiles} handleClick={handleClick} datePlans={datePlans} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          } />
         <Route
           path="/signup"
           element={<Signup handleSignupOrLogin={handleSignupOrLogin} />}
