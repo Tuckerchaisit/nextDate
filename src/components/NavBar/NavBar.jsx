@@ -1,28 +1,25 @@
 import { Link } from 'react-router-dom'
+import "./navBar.scss"
 
-const NavBar = ({ user, handleLogout }) => {
+const NavBar = ({ user, handleLogout, menuOpen, setMenuOpen }) => {
   return (
-    <>
-      {user ?
-        <nav>
-          <ul>
-            <li><Link to="/profiles">Profiles</Link></li>
-            <li><Link to="/icebreakers">Icebreakers</Link></li>
-            <li><Link to= {`/profiles/${user.profile}`}> My Profile </Link></li>
-            <li><Link to="/attractions">Date Ideas</Link></li>
-            <li><Link to="" onClick={handleLogout}>Log Out</Link></li>
-            <li><Link to="/changePassword">Change Password</Link></li>
-          </ul>
-        </nav>
-      :
-        <nav>
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
-        </nav>
-      }
-    </>
+    <div className={"navbar "+(menuOpen && "active")}>
+      <div className="wrapper">
+        <div className="left">
+          <img src="/nextDateLOGO.png" alt="" className="logo"/>
+          
+        </div>
+        
+        <div className="right">
+        <div className="hamburger" onClick={()=>setMenuOpen(!menuOpen)}>
+          <span className="line1"></span>
+          <span className="line2"></span>
+          <span className="line3"></span>
+        </div>
+        </div>
+      </div>
+      
+    </div>
   )
 }
 
