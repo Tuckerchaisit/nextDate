@@ -1,7 +1,5 @@
 import { useState, useRef, useEffect } from "react"
 import "./addChat.scss"
-import { useState, useRef, useEffect } from "react";
-
 
 const AddChat = (props) => {
   const formElement = useRef();

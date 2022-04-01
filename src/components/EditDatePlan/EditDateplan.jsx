@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom'
 import './editDateplan.scss'
-import { useState, useRef, useEffect } from "react";
-import { useLocation } from "react-router-dom";
 const EditDatePlan = ({ datePlanDetail, handleEditDatePlan }) => {
   const location = useLocation();
   const [formData, setFormData] = useState(location.state.datePlanDetail);
