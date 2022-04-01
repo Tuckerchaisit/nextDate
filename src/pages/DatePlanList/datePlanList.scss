@@ -1,0 +1,29 @@
+.newDPbtn{
+  font-size: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.newDPbtn:hover{
+  background-color: #9163CB;
+  color:white;
+  cursor: pointer;
+}
+
+.dp-list-box{
+  width: 1200px;
+  margin-top: 90px;
+
+  .dp-title{
+    font-size: 5rem;
+    margin:0 0 20px 0;
+  }
+}
+.dp-box{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  text-align: center;
+}

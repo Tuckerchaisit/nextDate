@@ -29,20 +29,22 @@ const ShowProfile = (props) => {
   )
 
   return ( 
-    <div>
-      <div></div>
+    <div className='show-profile-body'>
+      <div className='profile-box'>
         <img src={profileDetail.photo ? profileDetail.photo : 'No Image'} alt={'Person'} className="profPic"/>
-        <h1>{profileDetail.name}</h1>
-        <h2>Location: {profileDetail.address}</h2>
-        <h3>Status: {profileDetail.relationshipStatus}</h3>
-        <h3>Contact: {profileDetail.contactInfo}</h3>
-        <h3>About Me: {profileDetail.aboutMe}</h3>
-
+        <div className="profile-info-box">
+        <h1 className='profile-name'>{profileDetail.name}</h1>
+        <h2 className='profile-info'>Location: {profileDetail.address}</h2>
+        <h3 className='profile-info'>Status: {profileDetail.relationshipStatus}</h3>
+        <h3 className='profile-info'>Contact: {profileDetail.contactInfo}</h3>
+        <h3 className='profile-info'>About Me: {profileDetail.aboutMe}</h3>
         {profileDetail.email === props.user.email ?
         <Link to='/editprofile' state={{profileDetail}}>Edit Profile</Link>
         :
         ''
         }
+        </div>
+      </div>
         
         <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user} handleDeleteDatePlan={props.handleDeleteDatePlan} />
     </div>
