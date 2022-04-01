@@ -6,8 +6,9 @@ const NavBar = ({ user, handleLogout, menuOpen, setMenuOpen }) => {
     <div className={"navbar "+(menuOpen && "active")}>
       <div className="wrapper">
         <div className="left">
+        <Link to={`/profiles/${user?.profile}`}>
           <img src="/nextDateLOGO.png" alt="" className="logo"/>
-          
+          </Link>
         </div>
         
         <div className="right">
