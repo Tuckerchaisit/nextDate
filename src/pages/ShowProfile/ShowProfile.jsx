@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import * as profileService from '../../services/profileService'
 import DatePlanList from '../DatePlanList/DatePlanList'
 import { Link } from 'react-router-dom'
+import "./showProfile.scss"
 
 const ShowProfile = (props) => {
   
@@ -29,7 +30,8 @@ const ShowProfile = (props) => {
 
   return ( 
     <div>
-        <img src={profileDetail.photo ? profileDetail.photo : 'No Image'} alt={'Person'} />
+      <div></div>
+        <img src={profileDetail.photo ? profileDetail.photo : 'No Image'} alt={'Person'} className="profPic"/>
         <h1>{profileDetail.name}</h1>
         <h2>Location: {profileDetail.address}</h2>
         <h3>Status: {profileDetail.relationshipStatus}</h3>

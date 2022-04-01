@@ -10,7 +10,6 @@ const Icebreakers = (props) => {
     return (
       <React.Fragment key={icebreaker._id}>
         <div className="container">
-          <div>
             <Link to={`/profiles/${profId}`}>
               <img
                 src={
@@ -37,7 +36,6 @@ const Icebreakers = (props) => {
               ""
             )}
           </div>
-        </div>
       </React.Fragment>
     );
   });

@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom'
-
+import './editDateplan.scss'
 
 const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
   const location = useLocation()
@@ -38,11 +38,12 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 	}
 
   return (
-    <>
-      	<h1>Edit Date Plan</h1>
-			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-			<div>
-					<label htmlFor="title-input" className="form-label">
+    <div className='editPF-body'>
+    <main className="signup-container">
+      <h1 className='signup-title'>Edit Date Plan</h1>
+			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className="editPF-container">
+			<div className="input-SUFContainer">
+					<label htmlFor="title-input" className="USF-label">
 						Title:
 					</label>
 					<input 
@@ -55,8 +56,8 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="location-input" className="form-label">
+				<div className="input-SUFContainer">
+					<label htmlFor="location-input" className="USF-label">
 						Location:
 					</label>
 					<input 
@@ -69,8 +70,8 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="activity-input" className="form-label">
+				<div className="input-SUFContainer">
+					<label htmlFor="activity-input" className="USF-label">
 						Activity:
 					</label>
 					<input 
@@ -83,8 +84,8 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="food-input" className="form-label">
+				<div className="input-SUFContainer">
+					<label htmlFor="food-input" className="USF-label">
 						Food:
 					</label>
 					<input 
@@ -96,8 +97,8 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
             onChange={handleChange}
 					/>
 				</div>
-				<div>
-					<label htmlFor="detail-input" className="form-label">
+				<div className="input-SUFContainer">
+					<label htmlFor="detail-input" className="USF-label">
 						Detail:
 					</label>
 					<input 
@@ -109,28 +110,30 @@ const EditDatePlan = ({datePlanDetail, handleEditDatePlan}) => {
             onChange={handleChange}
 					/>
 				</div>
-				<div >
-					<label htmlFor="photo">
-						Upload Photo
+				<div className="input-SUFContainer">
+					<label htmlFor="photo" className="USF-label" >
+						Upload Photo :
 					</label>
 					<input
 						type="file"
-						className="form-control"
+						className="form-control upload-photo"
 						id="photo"
 						name="photo"
 						onChange={handleChangePhoto}
 					/>
 				</div>
-				<div>
+				<div className="input-SUFContainer">
 					<button
 						type="submit"
             disabled={!validForm}
+						className="USF-button editPF-btn"
 					>
 						Edit Date Plan
 					</button>
 				</div>
 			</form>
-    </>
+			</main>
+    </div>
   );
 }
  

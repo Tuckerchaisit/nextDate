@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import React from 'react'
+import "./profile.scss"
 
 
 const Profiles = (props) => {
@@ -9,27 +10,32 @@ const Profiles = (props) => {
     return (
       <React.Fragment key={profile._id}>
       <Link to={`/profiles/${profile._id}`}  >
-      <img src={profile.photo ? profile.photo : 'No Image'} alt={'Person'} />
+      <div className='profile-card'>
+      <img src={profile.photo ? profile.photo : 'No Image'} alt={'Person'} className="prof-img"/>
         <p onClick={() => props.handleClick(idx)} >
-          Name: {profile.name}<br/>
-          Location: {profile.address}<br/>
-          Status: {profile.relationshipStatus}</p>
+          <div className='prof-info'>
+          <div><h1 className='prof-text prof-name'>{profile.name}</h1></div>
+          <div><h1 className='prof-text'>Status: {profile.relationshipStatus}</h1></div>
+          <div><h1 className='prof-text'>Location: {profile.address}</h1></div>
+          </div>
+        </p>
+      </div>
       </Link>
       </React.Fragment>
     )
   })
 
   return (
-    <>
+    <div >
       {props.profiles.length ?
-        <>
-          <h1>Hello. This is a list of all the profiles.</h1>
+        <div className='allProfile'>
+          <h1 className='title-profile'>All Profiles</h1>
           <div>{allProfiles}</div>
-        </>
+        </div>
         :
         <p>No profiles yet</p>
       }
-    </>
+    </div>
   )
 }
 
