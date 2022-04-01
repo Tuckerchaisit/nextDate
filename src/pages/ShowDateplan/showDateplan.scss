@@ -1,0 +1,53 @@
+.showDP-body{
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  img{
+    border: white solid 15px;
+    box-shadow: 0 2px 4px 0 rgba(67, 67, 67, 0.2), 0 6px 10px 0 rgba(68, 68, 68, 0.19);
+  }
+
+  .sDP-title{
+    font-size: 4rem;
+    color: #433277;
+  }
+
+  .sDP-info{
+    margin-top: 40px;
+    font-size: 1.8rem;
+    color: #433277;
+
+    a{
+      text-decoration: none;
+      font-size: 1.2rem;
+      margin-top: 15px;
+      color: #9163CB;
+    }
+    a:hover{
+     color: #433277
+    }
+    .sdP-info-detail{
+      margin: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.chat-title{
+  font-size: 2.5rem;
+  color: #433277;
+}
+
+.chat-box-ctn{
+  width: 700px;
+}
+
+.chat-box{
+  box-shadow: 0 2px 4px 0 rgba(67, 67, 67, 0.2), 0 6px 10px 0 rgba(68, 68, 68, 0.19);
+  padding: 20px;
+  background-color: #f2ebfb;
+  color: #433277;
+}
