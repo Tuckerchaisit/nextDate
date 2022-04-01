@@ -1,51 +1,57 @@
-import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import * as profileService from '../../services/profileService'
-import DatePlanList from '../DatePlanList/DatePlanList'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import * as profileService from "../../services/profileService";
+import DatePlanList from "../DatePlanList/DatePlanList";
+import { Link } from "react-router-dom";
 
 const ShowProfile = (props) => {
-  
-  const [profileDetail, setProfileDetail] = useState({})
-  const { id } = useParams()
-  
-  const filteredProfile = props.profiles.filter((profile,idx)=>{
-    return(
-      idx===props.proIdx
+  const [profileDetail, setProfileDetail] = useState({});
+  const { id } = useParams();
 
-      )
-    })
-    
-  
-  useEffect(()=> {
-    profileService.getProfileDetails(id)
-    .then(profileDetail => setProfileDetail(profileDetail))
-  },[])
+  const filteredProfile = props.profiles.filter((profile, idx) => {
+    return idx === props.proIdx;
+  });
 
-  useEffect( () => {
-    props.findProfileIndex(id)
-  }, [props.profiles]
-  )
+  useEffect(() => {
+    profileService
+      .getProfileDetails(id)
+      .then((profileDetail) => setProfileDetail(profileDetail));
+  }, []);
 
-  return ( 
+  useEffect(() => {
+    props.findProfileIndex(id);
+  }, [props.profiles]);
+
+  return (
     <div>
-        <img src={profileDetail.photo ? profileDetail.photo : 'No Image'} alt={'Person'} />
-        <h1>{profileDetail.name}</h1>
-        <h2>Location: {profileDetail.address}</h2>
-        <h3>Status: {profileDetail.relationshipStatus}</h3>
-        <h3>Contact: {profileDetail.contactInfo}</h3>
-        <h3>About Me: {profileDetail.aboutMe}</h3>
+      <img
+        src={profileDetail.photo ? profileDetail.photo : "No Image"}
+        alt={"Person"}
+      />
+      <h1>{profileDetail.name}</h1>
+      <h2>Location: {profileDetail.address}</h2>
+      <h3>Status: {profileDetail.relationshipStatus}</h3>
+      <h3>Contact: {profileDetail.contactInfo}</h3>
+      <h3>About Me: {profileDetail.aboutMe}</h3>
 
-        {profileDetail.email === props.user.email ?
-        <Link to='/editprofile' state={{profileDetail}}>Edit Profile</Link>
-        :
-        ''
-        }
-        
-        <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user} handleDeleteDatePlan={props.handleDeleteDatePlan} />
+      {profileDetail.email === props.user.email ? (
+        <Link to="/editprofile" state={{ profileDetail }}>
+          Edit Profile
+        </Link>
+      ) : (
+        ""
+      )}
+
+      <DatePlanList
+        owner={filteredProfile}
+        datePlans={props.datePlans}
+        profiles={props.profiles}
+        proIdx={props.proIdx}
+        user={props.user}
+        handleDeleteDatePlan={props.handleDeleteDatePlan}
+      />
     </div>
+  );
+};
 
-   );
-}
- 
 export default ShowProfile;

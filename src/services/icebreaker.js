@@ -8,7 +8,7 @@ function getAllIceBreakers() {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function create(newIceBreaker) {
@@ -21,7 +21,7 @@ function create(newIceBreaker) {
     },
     body: JSON.stringify(newIceBreaker)
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function deleteOne(id) {
@@ -31,7 +31,7 @@ function deleteOne(id) {
       'Authorization': `Bearer ${tokenService.getToken()}`,
     },
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 export {
