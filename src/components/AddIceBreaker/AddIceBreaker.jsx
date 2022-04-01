@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from "react"
+import "./addIceBreaker.scss"
 
 function AddIceBreaker(props) {
   const formElement = useRef()
@@ -27,15 +28,15 @@ function AddIceBreaker(props) {
 
 
 	return (
-		<>
-			<h1>Add IceBreaker</h1>
+		<div className="mainbody">
+			<h1 className="title">Add IceBreaker</h1>
 			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="funFact-input" className="form-label">
+				<div className="IBF-ctn-lb">
+					<label htmlFor="funFact-input" className="form-label IBF-label" >
 						Add a Fun Fact:
 					</label>
 					<input 
-						className="form-control"
+						className="form-control IBF-input"
 						type="text"
 						id="funFact-input"
 						name="funFact"
@@ -44,12 +45,12 @@ function AddIceBreaker(props) {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="question-input" className="form-label">
+				<div className="IBF-ctn-lb">
+					<label htmlFor="question-input" className="form-label IBF-label">
 						Add a Question:
 					</label>
 					<input 
-						className="form-control"
+						className="form-control IBF-input"
 						type="text"
 						id="question-input"
 						name="question"
@@ -62,12 +63,13 @@ function AddIceBreaker(props) {
 					<button
 						type="submit"
             disabled={!validForm}
+						className="add-IB-form"
 					>
 						Add Ice Breaker
 					</button>
 				</div>
 			</form>
-		</>
+		</div>
 	)
 }
 

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import Attraction from "../Attraction/Attraction"
+import "./addDateplan.scss"
 
 function AddDatePlan(props) {
   const formElement = useRef()
@@ -39,12 +40,13 @@ function AddDatePlan(props) {
 	}
 
 	return (
-		<>
-			<h1>Add Date Plan</h1>
-			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
-				<div>
-					<label htmlFor="title-input" className="form-label">
-						Title:
+		<div className='editPF-body'>
+    <main className="signup-container">
+			<h1 className='signup-title'>Add Date Plan</h1>
+			<form autoComplete="off" ref={formElement} onSubmit={handleSubmit} className="editPF-container">
+				<div className="input-SUFContainer">
+					<label htmlFor="title-input" className="USF-label" >
+						Title :
 					</label>
 					<input 
 						className="form-control"
@@ -56,9 +58,9 @@ function AddDatePlan(props) {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="location-input" className="form-label">
-						Location:
+				<div className="input-SUFContainer">
+					<label htmlFor="location-input" className="USF-label">
+						Location :
 					</label>
 					<input 
 						className="form-control"
@@ -70,9 +72,9 @@ function AddDatePlan(props) {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="activity-input" className="form-label">
-						Activity:
+				<div className="input-SUFContainer">
+					<label htmlFor="activity-input" className="USF-label">
+						Activity :
 					</label>
 					<input 
 						type="text"
@@ -84,9 +86,9 @@ function AddDatePlan(props) {
 						required
 					/>
 				</div>
-				<div>
-					<label htmlFor="food-input" className="form-label">
-						Food:
+				<div className="input-SUFContainer">
+					<label htmlFor="food-input" className="USF-label">
+						Food :
 					</label>
 					<input 
 						type="text"
@@ -97,9 +99,9 @@ function AddDatePlan(props) {
             onChange={handleChange}
 					/>
 				</div>
-				<div>
-					<label htmlFor="detail-input" className="form-label">
-						Detail:
+				<div className="input-SUFContainer">
+					<label htmlFor="detail-input" className="USF-label">
+						Detail :
 					</label>
 					<input 
 						type="textarea"
@@ -110,9 +112,9 @@ function AddDatePlan(props) {
             onChange={handleChange}
 					/>
 				</div>
-				<div >
-					<label htmlFor="photo">
-						Upload Photo
+				<div className="input-SUFContainer">
+					<label htmlFor="photo" className="USF-label">
+						Upload Photo :
 					</label>
 					<input
 						type="file"
@@ -122,18 +124,18 @@ function AddDatePlan(props) {
 						onChange={handleChangePhoto}
 					/>
 				</div>
-				<div>
+				<div className="input-SUFContainer">
 					<button
 						type="submit"
             disabled={!validForm}
+						className= "USF-button editPF-btn"
 					>
 						Add Date Plan
 					</button>
 				</div>
 			</form>
-
-	
-		</>
+			</main>
+    </div>
 	)
 }
 

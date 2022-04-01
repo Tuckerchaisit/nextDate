@@ -1,0 +1,32 @@
+.SUF-container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.input-SUF-container{
+  margin-bottom: 15px;;
+}
+
+.USF-label{
+  margin-right: 0.5rem;
+  font-size: 1.5rem;
+}
+.USF-button {
+  margin-right: 0.8rem;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  border-radius: 6px;
+  cursor:pointer
+}
+
+.USF-button:hover{
+  background-color: #9163CB;
+  color:white;
+}
+
+.inputContainer {
+  margin-bottom: 1rem;
+}

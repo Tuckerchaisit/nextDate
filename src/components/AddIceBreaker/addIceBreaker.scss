@@ -1,0 +1,28 @@
+.add-IB-form{
+  margin-top: 30px;
+  font-size: 1.5rem;
+  width: 300px;
+  border-radius: 8px;
+  padding: 10px 0;
+  background-color: #f3f0f5e7;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px 0 rgba(67, 67, 67, 0.2), 0 6px 10px 0 rgba(68, 68, 68, 0.19);
+}
+
+.add-IB-form:hover{
+  background-color: #9163CB;
+  color: white;
+}
+
+.IBF-ctn-lb{
+  margin-bottom: 20px;
+  font-size: 2rem;
+
+  .IBF-input{
+    margin-left: 20px;
+    height: 40px;
+    font-size: 1.8rem;
+  }
+}

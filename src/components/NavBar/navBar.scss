@@ -18,11 +18,12 @@
       display: flex;
       align-items: center;
 
-      .logo{
-        width: 24%
+      img{
+        width: 24%;
+        height: 100%;
       }
 
-      .logo:hover{
+      img:hover{
         width: 25%
       }
     }

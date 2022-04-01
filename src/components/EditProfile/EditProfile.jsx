@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react"
 import { useLocation } from 'react-router-dom'
+import './editProfile.scss'
 
 const EditProfile = ({profileDetail, handleEditProfile}) => {
   const location = useLocation()
@@ -35,16 +36,18 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
 	}
 
   return (
-    <>
-    <h1>Edit profile</h1>
+    <div className='editPF-body'>
+    <main className="signup-container">
+    <h1 className='signup-title'>Edit profile</h1>
     <form
       autoComplete="off"
       onSubmit={handleSubmit}
       ref={formElement}
+      className="editPF-container"
     >
-      <div >
-        <label htmlFor="name" >
-          Name
+      <div className="input-SUFContainer">
+        <label htmlFor="name" className="USF-label">
+          Name :
         </label>
         <input
           type="text"
@@ -55,9 +58,9 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
           onChange={handleChange}
         />
       </div>
-      <div >
-        <label htmlFor="address" className="address">
-          Location
+      <div className="input-SUFContainer">
+        <label htmlFor="address" className="USF-label">
+          Location :
         </label>
         <input
           type="text"
@@ -68,9 +71,9 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
           onChange={handleChange}
         />
       </div>
-      <div >
-        <label htmlFor="relationshipStatus" className="relationshipStatus">
-          Relationship Status:
+      <div className="input-SUFContainer">
+        <label htmlFor="relationshipStatus" className="USF-label">
+          Relationship Status :
         </label>
         <select
           name="relationshipStatus"
@@ -83,9 +86,9 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
           <option value="In A Relationship">In A Relationship</option>
         </select>
       </div>
-      <div >
-        <label htmlFor="aboutMe" className="address">
-          About Me:
+      <div className="input-SUFContainer">
+        <label htmlFor="aboutMe" className="USF-label">
+          About Me :
         </label>
         <input
           type="text"
@@ -96,9 +99,9 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
           onChange={handleChange}
         />
       </div>
-      <div >
-        <label htmlFor="contactInfo" className="address">
-          Contact Info:
+      <div className="input-SUFContainer">
+        <label htmlFor="contactInfo" className="USF-label">
+          Contact Info :
         </label>
         <input
           type="text"
@@ -109,9 +112,9 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
           onChange={handleChange}
         />
       </div>
-      <div >
-					<label htmlFor="photo">
-						Upload Photo
+      <div className="input-SUFContainer">
+					<label htmlFor="photo" className="USF-label">
+						Upload Photo :
 					</label>
 					<input
 						type="file"
@@ -121,13 +124,14 @@ const EditProfile = ({profileDetail, handleEditProfile}) => {
 						onChange={handleChangePhoto}
 					/>
 				</div>
-      <div>
-        <button disabled={!validForm}>
+      <div className="input-SUFContainer">
+        <button disabled={!validForm} className="USF-button editPF-btn">
           Submit
         </button>
       </div>
     </form>
-    </>
+    </main>
+    </div>
   );
 }
  
