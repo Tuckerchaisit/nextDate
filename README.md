@@ -2,7 +2,7 @@
 
 ![nextDate-logo](/public/nextDateLOGO.png)
 
-nextDate is a web site to get people to meet in the real world which can be challenging. nextDate helps break down those challenges by letting users search for things to do in their area and create Date Plans. Date Plans will help users make the leap from the digital space to the physical space. People who are interested in each other or in each others activities can join the fun. The icebreakers section will help users get to know one other and start conversations.
+nextDate is an app that helps the users inside our platform to connect to each other. nextDate allows users to make the leap from the digital space to the physical space by breaking down the challenges of planning and finding the right date. The app let user searches for the date's idea in their area, create Date Plans, and even bring the user straight to the Ticketmaster portal to get the ticket of that date.  Inside our app, there's also an icebreakers section that will help the users to get to know each other's personalities, fun facts and start making conversations.
 
 ---
 
