@@ -48,8 +48,7 @@ const ShowProfile = (props) => {
         
         <DatePlanList owner={filteredProfile} datePlans={props.datePlans} profiles={props.profiles}  proIdx={props.proIdx} user={props.user} handleDeleteDatePlan={props.handleDeleteDatePlan} />
     </div>
+  );
+};
 
-   );
-}
- 
 export default ShowProfile;

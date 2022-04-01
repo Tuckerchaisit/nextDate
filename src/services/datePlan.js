@@ -8,7 +8,7 @@ function getAllDatePlans() {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function create(newDatePlanData) {
@@ -17,11 +17,10 @@ function create(newDatePlanData) {
     method: 'POST',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-      // 'content-type': 'application/json'
     },
     body: newDatePlanData
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function update(editDatePlan) {
@@ -30,11 +29,10 @@ function update(editDatePlan) {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-      // 'content-type': 'application/json'
     },
     body: editDatePlan
   })
-	.then(res => res.json())
+    .then(res => res.json())
 }
 
 function deleteOne(id) {
@@ -44,22 +42,22 @@ function deleteOne(id) {
       'Authorization': `Bearer ${tokenService.getToken()}`,
     },
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
-function getDatePlanDetails(id){
+function getDatePlanDetails(id) {
   return fetch(`${BASE_URL}/${id}`)
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function getAllChats(id) {
   console.log('Get All Chats: ', id)
-  return fetch(`${BASE_URL}/${id}` , {
+  return fetch(`${BASE_URL}/${id}`, {
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`
     }
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function createChat(newChatData, id) {
@@ -72,7 +70,7 @@ function createChat(newChatData, id) {
     },
     body: JSON.stringify(newChatData)
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function deleteChat(id) {
@@ -82,7 +80,7 @@ function deleteChat(id) {
       'Authorization': `Bearer ${tokenService.getToken()}`,
     },
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 

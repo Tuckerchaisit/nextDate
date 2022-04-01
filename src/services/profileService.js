@@ -9,11 +9,11 @@ async function getAllProfiles() {
   return await res.json()
 }
 
-function getProfileDetails(id){
-  return fetch(`${BASE_URL}/${id}`,{
+function getProfileDetails(id) {
+  return fetch(`${BASE_URL}/${id}`, {
     headers: { Authorization: `Bearer ${tokenService.getToken()}` }
   })
-  .then(res => res.json())
+    .then(res => res.json())
 }
 
 function update(editProfile, id) {
@@ -22,11 +22,10 @@ function update(editProfile, id) {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-      // 'content-type': 'application/json'
     },
     body: editProfile
   })
-	.then(res => res.json())
+    .then(res => res.json())
 }
 
 

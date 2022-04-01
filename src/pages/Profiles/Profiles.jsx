@@ -4,11 +4,10 @@ import "./profile.scss"
 
 
 const Profiles = (props) => {
-
   const allProfiles = props.profiles.map((profile, idx) => {
-    console.log(profile)
     return (
       <React.Fragment key={profile._id}>
+
       <Link to={`/profiles/${profile._id}`}  >
       <div className='profile-card'>
       <img src={profile.photo ? profile.photo : 'No Image'} alt={'Person'} className="prof-img"/>
@@ -21,11 +20,13 @@ const Profiles = (props) => {
         </p>
       </div>
       </Link>
+
       </React.Fragment>
-    )
-  })
+    );
+  });
 
   return (
+
     <div >
       {props.profiles.length ?
         <div className='allProfile'>
@@ -39,4 +40,5 @@ const Profiles = (props) => {
   )
 }
 
-export default Profiles
+
+export default Profiles;
