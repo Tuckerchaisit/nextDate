@@ -4,7 +4,6 @@ import React from "react";
 
 const Icebreakers = (props) => {
   const IceBreakerList = props.iceBreakers.map((icebreaker) => {
-    console.log(icebreaker);
 
     const profId = icebreaker.owner._id;
     return (

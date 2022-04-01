@@ -30,8 +30,6 @@ const Attraction = () => {
       : setValidForm(false);
   }, [formData]);
 
-  console.log(attractions);
-
   return (
     <div className="mainbody">
       <h1 className="title">Search For Date Ideas</h1>
