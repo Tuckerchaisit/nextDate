@@ -13,6 +13,7 @@
     padding-bottom: 50px;
     border-radius: 12px;
     background-color: #f3f0f5e7;
+    transition: transform .2s;
 
     img{
       width: 330px;
@@ -44,6 +45,10 @@
       background-color: #9163CB;
       color: white;
     }
+  }
+
+  .attractions:hover{
+    transform: scale(1.05);
   }
 }
 

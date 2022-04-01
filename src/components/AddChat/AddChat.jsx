@@ -1,4 +1,7 @@
+import { useState, useRef, useEffect } from "react"
+import "./addChat.scss"
 import { useState, useRef, useEffect } from "react";
+
 
 const AddChat = (props) => {
   const formElement = useRef();
@@ -25,12 +28,12 @@ const AddChat = (props) => {
 
   return (
     <>
-      <h1>Add Chat</h1>
+      
       <form autoComplete="off" ref={formElement} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="comments-input" className="form-label"></label>
           <input
-            className="form-control"
+            className="chat-form"
             type="text"
             id="comments-input"
             name="comments"
@@ -39,8 +42,8 @@ const AddChat = (props) => {
             required
           />
         </div>
-        <div>
-          <button type="submit" disabled={!validForm}>
+        <div >
+          <button type="submit" disabled={!validForm} className="send-btn">
             Send
           </button>
         </div>

@@ -2,7 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Navigate } from "react-router-dom";
 import * as datePlanService from "../../services/datePlan.js";
 import { Link } from "react-router-dom";
-import AddChat from "../../components/AddChat/AddChat.jsx";
+import AddChat from '../../components/AddChat/AddChat.jsx';
+import "./showDateplan.scss"
+
 
 const ShowDateplan = ({
   datePlans,
@@ -31,34 +33,38 @@ const ShowDateplan = ({
 
   return datePlanDetail ? (
     <>
-      <div>
-        <h1>{datePlanDetail.title}</h1>
-        <img
-          src={datePlanDetail.photo ? datePlanDetail.photo : "No Image"}
-          alt={"Date Plan"}
-        />
-        <h3>Location: {datePlanDetail.location}</h3>
-        <p>Date Details: {datePlanDetail.detail}</p>
-        <p>Food: {datePlanDetail.food}</p>
-        <p>Activities: {datePlanDetail.activity}</p>
-        {datePlanDetail.owner?.email === user.email ? (
+
+      <div className='showDP-body'>
+        <div>
+        <h1 className='sDP-title'>{datePlanDetail.title}</h1>
+        <img src={datePlanDetail.photo ? datePlanDetail.photo : 'No Image'} alt={'Date Plan'} />
+        <div className='sDP-info'>
+        <h3 className='sdP-info-detail'>Location: {datePlanDetail.location}</h3>
+        <p className='sdP-info-detail'>Date Details: {datePlanDetail.detail}</p>
+        <p className='sdP-info-detail'>Food: {datePlanDetail.food}</p>
+        <p className='sdP-info-detail'>Activities: {datePlanDetail.activity}</p>
+        {datePlanDetail.owner?.email === user.email ? 
           <Link to="/edit" state={{ datePlanDetail }}>
             Edit Date Plan
-          </Link>
-        ) : (
-          ""
-        )}
+          </Link> 
+          : ''
+        }
+        </div>
       </div>
+      <h1 className='chat-title'>Let's Chat!</h1>
       <div>
-        {datePlanDetail.chats?.map((chat) => {
-          return <p>{chat.comments}</p>;
+
+        {datePlanDetail.chats?.map(chat => {
+          return (
+          <div className='chat-box-ctn'>
+          <h2 className='chat-box'>{chat.comments}</h2>
+          </div>
+          )
         })}
       </div>
-      <AddChat handleAddChat={handleAddChat} />
-    </>
-  ) : (
-    <>
-      <p>Loading</p>
+        <AddChat handleAddChat={handleAddChat}/>
+      </div>
+
     </>
   );
 };
