@@ -55,6 +55,7 @@ nextDate is an app that helps the users inside our platform to connect to each o
 
 ## Icebox Items 🧊
 - [ ] Restaurants API
+- [ ] Filter users by location, relationship status, etc.
 - [ ] Add date ideas to date plan
 - [ ] Comment on icebreakers
 - [ ] Find matching dateplans
