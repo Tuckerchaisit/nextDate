@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
 const DatePlan = ({datePlan, handleDeleteDatePlan, user, ownerEmail, ownerId}) => {
 
   return (
-    <>
+    <React.Fragment key={user.name}>
       <div>
       {ownerEmail[0] === user.email ? (
           <>
@@ -21,7 +22,7 @@ const DatePlan = ({datePlan, handleDeleteDatePlan, user, ownerEmail, ownerId}) =
         </Link>
         
       </div>
-    </>
+    </React.Fragment>
   );
 };
  

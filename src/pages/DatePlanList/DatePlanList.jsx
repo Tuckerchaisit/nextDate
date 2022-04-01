@@ -21,7 +21,7 @@ const DatePlanList = (props) => {
   
 
   return (
-    <>
+    <React.Fragment key={props.user.name}>
      {ownerEmail[0] === props.user.email ? 
      <>
         <Link to="/new">Add Date Plan</Link>
@@ -47,7 +47,7 @@ const DatePlanList = (props) => {
       </div> 
      
     
-     </>
+     </React.Fragment>
   )
 }
  
