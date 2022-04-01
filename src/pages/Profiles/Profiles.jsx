@@ -29,7 +29,7 @@ const Profiles = (props) => {
     <div >
       {props.profiles.length ?
         <div className='allProfile'>
-          <h1 className='title-profile'>All Profiles</h1>
+          <h1 className='title-profile'>Find Your Date</h1>
           <div>{allProfiles}</div>
         </div>
         :

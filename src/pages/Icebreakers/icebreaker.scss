@@ -58,10 +58,12 @@
     margin: 5px 0 15px 55px;
     font-weight: 900;
     font-size: 1.8rem;
+    transition: transform .2s;
   }
 
   .name:hover{
     color:#B185DB;
+    transform: scale(1.1);
   }
 
   .info{
